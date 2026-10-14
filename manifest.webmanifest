@@ -1,0 +1,16 @@
+{
+  "name": "Rajesh Biswas - Portfolio",
+  "short_name": "Rajesh.dev",
+  "description": "Computer Science student, competitive programmer, full stack developer.",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
