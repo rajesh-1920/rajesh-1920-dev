@@ -60,7 +60,7 @@ export default function Hero() {
           <div className="hero-image md:w-1/2 relative">
             <div className="absolute inset-0 rounded-xl overflow-hidden bg-bg-secondary">
               <Image
-                src="/assets/images/profile-picture.jpg"
+                src="/images/profile-picture.jpg"
                 alt="Rajesh Biswas - Profile Picture"
                 width={500}
                 height={500}
