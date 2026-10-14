@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Design tokens ported from assets/css/variables.css */
+:root {
+  --bg-primary: 15 23 42;
+  --bg-secondary: 26 39 68;
+  --bg-tertiary: 10 15 27;
+  --text-primary: 226 232 240;
+  --text-secondary: 203 213 225;
+  --text-tertiary: 148 163 184;
+  --accent-primary: 0 255 136;
+  --accent-secondary: 56 189 248;
+  --accent-tertiary: 249 115 22;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-display: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+.light {
+  --bg-primary: 248 250 252;
+  --bg-secondary: 255 255 255;
+  --bg-tertiary: 238 242 247;
+  --text-primary: 15 23 42;
+  --text-secondary: 71 85 105;
+  --text-tertiary: 100 116 139;
+  --accent-primary: 5 150 105;
+  --accent-secondary: 37 99 235;
+  --accent-tertiary: 234 88 12;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-bg-primary text-ink-primary font-sans antialiased;
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-container px-4;
+  }
+  .section-padding {
+    @apply py-20;
+  }
+  .section-eyebrow {
+    @apply text-sm font-semibold uppercase tracking-widest text-accent-primary;
+  }
+  .section-title {
+    @apply font-display text-3xl font-extrabold sm:text-4xl;
+  }
+  .section-subtitle {
+    @apply mt-2 text-ink-secondary;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center rounded-lg px-5 py-2.5 text-sm font-semibold transition;
+  }
+  .btn-primary {
+    @apply bg-accent-primary text-slate-950 hover:opacity-90;
+  }
+  .btn-outline {
+    @apply border border-accent-primary/40 text-ink-primary hover:bg-accent-primary/10;
+  }
+}
