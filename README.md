@@ -3,6 +3,7 @@
 Static personal portfolio (HTML, CSS, vanilla JS). No build step. Deployed to Vercel Production (canonical) and GitHub Pages (mirror).
 
 Live:
+
 - Production (Vercel): see Vercel project deployments
 - Mirror (Pages): https://rajesh-1920.github.io/rajesh-1920-dev/
 
@@ -52,6 +53,7 @@ Root-level SEO files (`robots.txt`, `sitemap.xml`, `favicon.svg`) are intentiona
 ## Deployment
 
 See `docs/DEPLOYMENT.md`. Summary:
+
 - Push to `main` → Vercel Production deployment + Pages `built` deployment.
 - Push to other branches → Vercel Preview only.
 - Custom domain: Vercel Dashboard → Settings → Domains.

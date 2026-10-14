@@ -82,7 +82,9 @@
   letter-spacing: 0.02em;
   border: none;
   background: transparent;
-  transition: color var(--transition-fast), background var(--transition-fast);
+  transition:
+    color var(--transition-fast),
+    background var(--transition-fast);
   position: relative;
   white-space: nowrap;
   text-transform: none;
@@ -209,12 +211,8 @@
   right: 0;
   bottom: 0;
   background:
-    radial-gradient(circle at 20% 50%,
-      rgba(0, 255, 136, 0.05),
-      transparent 50%),
-    radial-gradient(circle at 80% 50%,
-      rgba(56, 189, 248, 0.05),
-      transparent 50%);
+    radial-gradient(circle at 20% 50%, rgba(0, 255, 136, 0.05), transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(56, 189, 248, 0.05), transparent 50%);
   pointer-events: none;
   z-index: 0;
 }
@@ -374,9 +372,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg,
-      rgba(0, 255, 136, 0.1),
-      rgba(56, 189, 248, 0.1));
+  background: linear-gradient(135deg, rgba(0, 255, 136, 0.1), rgba(56, 189, 248, 0.1));
   border-radius: 50%;
   /* Match circular shape */
   animation: glow 3s ease-in-out infinite;
@@ -584,9 +580,7 @@
 
 /* Back to Top Button */
 .back-to-top {
-  background: linear-gradient(135deg,
-      var(--accent-primary),
-      var(--accent-secondary));
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
   color: var(--bg-primary);
   border: none;
   padding: var(--space-3) var(--space-6);
@@ -708,12 +702,8 @@
 
 [data-theme="light"] .hero::before {
   background:
-    radial-gradient(circle at 20% 50%,
-      rgba(16, 185, 129, 0.08),
-      transparent 50%),
-    radial-gradient(circle at 80% 50%,
-      rgba(59, 130, 246, 0.08),
-      transparent 50%);
+    radial-gradient(circle at 20% 50%, rgba(16, 185, 129, 0.08), transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(59, 130, 246, 0.08), transparent 50%);
 }
 
 [data-theme="light"] .btn-primary {

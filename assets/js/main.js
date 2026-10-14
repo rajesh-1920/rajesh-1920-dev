@@ -141,8 +141,7 @@ const App = (() => {
     });
     console.log("Performance:", {
       navigationStart: performance.timing.navigationStart,
-      loadComplete:
-        performance.timing.loadEventEnd - performance.timing.navigationStart,
+      loadComplete: performance.timing.loadEventEnd - performance.timing.navigationStart,
     });
     console.groupEnd();
   };

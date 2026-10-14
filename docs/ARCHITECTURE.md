@@ -5,6 +5,7 @@ Single-page static site. No framework, no bundler, no backend.
 ## Entry
 
 `index.html` at repo root:
+
 - Links `assets/css/*.css` (7 files: variables → base → components → skills → projects → contact → responsive).
 - Loads `assets/js/*.js` with `defer` (theme, nav, animations, projects, contact, main coordinator).
 - Sections: `#home`, `#about`, `#skills`, `#projects`, `#cp`, `#contact`, footer.
@@ -12,9 +13,10 @@ Single-page static site. No framework, no bundler, no backend.
 ## Why root `index.html`?
 
 Both hosts require zero-config:
+
 - GitHub Pages (legacy, `main`/`/`): serves repo root at `/<repo>/`.
 - Vercel (static, no build): serves repo root at `/`.
-Moving entry to `src/` or `public/` would break one host without a build step. So entry stays at root.
+  Moving entry to `src/` or `public/` would break one host without a build step. So entry stays at root.
 
 ## Assets
 

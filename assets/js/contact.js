@@ -79,8 +79,7 @@ const Contact = (() => {
         } else if (value.length > 50) {
           error = "Name must be less than 50 characters";
         } else if (!/^[a-zA-Z\s'-]+$/.test(value)) {
-          error =
-            "Name can only contain letters, spaces, hyphens, and apostrophes";
+          error = "Name can only contain letters, spaces, hyphens, and apostrophes";
         }
         break;
 
@@ -229,9 +228,7 @@ const Contact = (() => {
         // Simulate success (90% chance)
         if (Math.random() > 0.1) {
           // Store message locally (for demonstration)
-          const messages = JSON.parse(
-            localStorage.getItem("contact-messages") || "[]",
-          );
+          const messages = JSON.parse(localStorage.getItem("contact-messages") || "[]");
           messages.push(data);
           localStorage.setItem("contact-messages", JSON.stringify(messages));
           resolve({ success: true, message: "Message sent successfully" });

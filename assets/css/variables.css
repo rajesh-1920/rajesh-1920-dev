@@ -37,7 +37,8 @@
   /* ========== TYPOGRAPHY ========== */
 
   /* Font Family */
-  --font-primary: "Inter", "Segoe UI", system-ui, -apple-system, Tahoma, Geneva, Verdana, sans-serif;
+  --font-primary:
+    "Inter", "Segoe UI", system-ui, -apple-system, Tahoma, Geneva, Verdana, sans-serif;
   --font-display: "Plus Jakarta Sans", "Inter", "Segoe UI", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
@@ -124,12 +125,9 @@
   /* ========== SHADOWS ========== */
 
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-  --shadow-md:
-    0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
-  --shadow-lg:
-    0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15);
-  --shadow-xl:
-    0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.15);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.15);
   --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
 
   /* Glow Shadows */
@@ -245,9 +243,11 @@
   /* Gradient overlays */
   --gradient-primary: linear-gradient(135deg, #059669, #047857);
   --gradient-secondary: linear-gradient(135deg, #2563eb, #1d4ed8);
-  --gradient-accent: linear-gradient(135deg,
-      rgba(5, 150, 105, 0.08),
-      rgba(37, 99, 235, 0.08));
+  --gradient-accent: linear-gradient(
+    135deg,
+    rgba(5, 150, 105, 0.08),
+    rgba(37, 99, 235, 0.08)
+  );
 
   /* Section backgrounds */
   --section-bg: #f1f5f9;

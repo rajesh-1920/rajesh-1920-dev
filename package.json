@@ -1,0 +1,19 @@
+{
+  "name": "rajesh-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static personal portfolio — no build step.",
+  "scripts": {
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint:html": "htmlhint index.html pages/*.html",
+    "lint:css": "stylelint \"assets/css/**/*.css\"",
+    "validate": "node scripts/validate.mjs"
+  },
+  "devDependencies": {
+    "htmlhint": "^1.8.4",
+    "prettier": "^3.3.3",
+    "stylelint": "^16.9.0",
+    "stylelint-config-standard": "^36.0.1"
+  }
+}
