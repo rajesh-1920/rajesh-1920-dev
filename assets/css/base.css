@@ -45,10 +45,12 @@ h6 {
 
 h1 {
   font-size: var(--fs-5xl);
+  font-family: var(--font-display);
 }
 
 h2 {
   font-size: var(--fs-4xl);
+  font-family: var(--font-display);
 }
 
 h3 {
@@ -448,14 +450,33 @@ textarea {
 
 /* ===== SECTION TITLES ===== */
 
+.section-eyebrow {
+  text-align: center;
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-primary);
+  margin-bottom: var(--space-2);
+}
+
 .section-title {
-  font-size: var(--fs-4xl);
+  font-size: clamp(1.875rem, 4vw, 2.25rem);
   font-weight: var(--fw-extrabold);
   text-align: center;
-  margin-bottom: var(--space-12);
+  margin-bottom: var(--space-3);
   position: relative;
-  display: inline-block;
+  display: block;
   width: 100%;
+  font-family: var(--font-display);
+}
+
+.section-subtitle {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: var(--fs-lg);
+  max-width: 640px;
+  margin: 0 auto var(--space-12);
 }
 
 .section-title::after {
@@ -634,20 +655,20 @@ textarea {
 /* ===== LIGHT MODE SPECIFIC STYLES ===== */
 
 [data-theme="light"] ::-webkit-scrollbar-track {
-  background: #99ccff; /* Medium blue */
+  background: var(--bg-tertiary);
 }
 
 [data-theme="light"] ::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 255, 0.5); /* Blue scrollbar */
+  background: var(--accent-primary);
 }
 
 [data-theme="light"] ::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 0, 255, 0.7);
+  background: var(--accent-secondary);
 }
 
 [data-theme="light"] ::selection {
-  background: rgba(0, 0, 255, 0.3); /* Blue selection */
-  color: white;
+  background: rgba(5, 150, 105, 0.25);
+  color: var(--text-primary);
 }
 
 /* Enhanced typography for light mode */
@@ -657,68 +678,60 @@ textarea {
 [data-theme="light"] h4,
 [data-theme="light"] h5,
 [data-theme="light"] h6 {
-  color: #001a33; /* Dark blue for headings */
-  font-weight: 700;
+  color: var(--text-primary);
 }
 
 [data-theme="light"] p {
-  color: #003366; /* Medium dark blue for text */
+  color: var(--text-secondary);
 }
 
 [data-theme="light"] .text-muted {
-  color: #004080; /* Slightly lighter blue */
+  color: var(--text-tertiary);
 }
 
 [data-theme="light"] a:hover {
-  color: #0000ff; /* Bright blue */
+  color: var(--link-hover);
 }
 
 [data-theme="light"] .skip-link {
-  background: #0000ff;
-  color: white;
+  background: var(--accent-primary);
+  color: #fff;
 }
 
 /* Button enhancements for light mode */
 [data-theme="light"] .btn-primary {
-  background: #0000ff; /* Blue button like in image */
-  border-color: #0000cc;
-  color: white;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  border-color: transparent;
+  color: #fff;
   font-weight: 700;
-  box-shadow:
-    0 4px 12px rgba(0, 0, 255, 0.3),
-    0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-glow-primary);
 }
 
 [data-theme="light"] .btn-primary:hover {
-  background: #0000cc;
-  box-shadow:
-    0 6px 16px rgba(0, 0, 255, 0.4),
-    0 4px 8px rgba(0, 0, 0, 0.15);
   transform: translateY(-2px);
+  box-shadow: var(--shadow-glow-strong);
 }
 
 [data-theme="light"] .btn-outline {
-  border-color: #0000ff;
-  color: white;
-  background: #0000ff; /* Blue button */
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  background: transparent;
   font-weight: 700;
 }
 
 [data-theme="light"] .btn-outline:hover {
-  background: #0000cc;
-  border-color: #0000cc;
-  box-shadow:
-    0 0 0 3px rgba(0, 0, 255, 0.2),
-    0 4px 12px rgba(0, 0, 255, 0.3);
+  background: rgba(5, 150, 105, 0.1);
+  border-color: var(--accent-primary);
+  box-shadow: var(--shadow-sm);
 }
 
 [data-theme="light"] .btn-link {
-  color: #2563eb;
+  color: var(--accent-primary);
 }
 
 [data-theme="light"] .btn-link:hover {
-  background: rgba(37, 99, 235, 0.08);
-  color: #1d4ed8;
+  background: rgba(5, 150, 105, 0.1);
+  color: var(--accent-primary);
 }
 
 [data-theme="light"] .btn:disabled {

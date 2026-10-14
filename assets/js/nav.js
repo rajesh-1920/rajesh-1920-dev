@@ -95,8 +95,10 @@ const Navigation = (() => {
    */
   const toggleMobileMenu = () => {
     if (mobileMenuBtn && navMenu) {
+      const isOpen = !navMenu.classList.contains("active");
       mobileMenuBtn.classList.toggle("active");
       navMenu.classList.toggle("active");
+      mobileMenuBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
 
       // Prevent body scroll when menu is open
       document.body.classList.toggle("no-scroll");
@@ -110,6 +112,7 @@ const Navigation = (() => {
     if (mobileMenuBtn && navMenu) {
       mobileMenuBtn.classList.remove("active");
       navMenu.classList.remove("active");
+      mobileMenuBtn.setAttribute("aria-expanded", "false");
       document.body.classList.remove("no-scroll");
     }
   };

@@ -30,6 +30,7 @@ const App = (() => {
 
     // Setup additional features
     setupBackToTop();
+    setupFooterYear();
     setupPerformanceMonitoring();
   };
 
@@ -83,6 +84,14 @@ const App = (() => {
 
     // Initial hidden state
     backToTopBtn.classList.add("hidden");
+  };
+
+  /**
+   * Setup footer year
+   */
+  const setupFooterYear = () => {
+    const yearEl = document.getElementById("year");
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
   };
 
   /**

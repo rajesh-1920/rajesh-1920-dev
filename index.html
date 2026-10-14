@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 
 <head>
   <meta charset="UTF-8" />
@@ -15,6 +15,12 @@
   <meta property="og:type" content="website" />
 
   <title>Rajesh Biswas - Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
 
   <!-- CSS Files -->
   <link rel="stylesheet" href="assets/css/variables.css" />
@@ -33,14 +39,13 @@
   <!-- Navigation Bar -->
   <nav class="navbar" aria-label="Main navigation">
     <div class="navbar-container">
-      <a href="#" class="navbar-logo">
-        <img src="assets/images/logo-picture.jpg" alt="Rajesh Biswas - Logo" />
-        <span class="logo-text">Rajesh</span>
-        <span class="logo-accent">.dev</span>
+      <a href="#home" class="navbar-logo" aria-label="Rajesh Biswas - home">
+        <img src="assets/images/logo-picture.jpg" alt="Rajesh Biswas - Logo" loading="lazy" />
+        <span class="logo-text">Rajesh</span><span class="logo-accent">.dev</span>
       </a>
 
       <!-- Navigation Links -->
-      <div class="nav-menu">
+      <div class="nav-menu" id="primary-navigation">
         <a href="#home" class="nav-link active" data-scroll>Home</a>
         <a href="#about" class="nav-link" data-scroll>About</a>
         <a href="#skills" class="nav-link" data-scroll>Skills</a>
@@ -51,12 +56,16 @@
       </div>
 
       <!-- Dark Mode Toggle -->
-      <button class="theme-toggle" aria-label="Toggle dark/light mode" id="theme-btn">
-        <span class="theme-icon">🌙</span>
+      <button class="theme-toggle" aria-label="Switch to light mode" aria-pressed="false" id="theme-btn">
+        <svg class="theme-icon-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+        </svg>
       </button>
 
       <!-- Mobile Menu Button -->
-      <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" id="mobile-menu-btn">
+      <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false"
+        aria-controls="primary-navigation" id="mobile-menu-btn">
         <span></span>
         <span></span>
         <span></span>
@@ -70,6 +79,7 @@
     <section id="home" class="hero section-padding">
       <div class="hero-content">
         <div class="hero-text">
+          <p class="hero-badge"><span class="hero-badge-dot"></span>Available for internships &amp; collaboration</p>
           <h1 class="hero-title">
             Hi, I'm <span class="accent-text">Rajesh Biswas</span>
           </h1>
@@ -85,15 +95,32 @@
           </p>
           <div class="hero-buttons">
             <a href="#projects" class="btn btn-primary" data-scroll>View Projects</a>
-            <a href="#" class="btn btn-outline" download>Download CV</a>
+            <a href="#contact" class="btn btn-outline" data-scroll>Contact Me</a>
           </div>
+          <dl class="hero-stats">
+            <div class="hero-stat">
+              <dt class="sr-only">Problems solved</dt>
+              <dd class="hero-stat-value">2000+</dd>
+              <dd class="hero-stat-label">Problems solved</dd>
+            </div>
+            <div class="hero-stat">
+              <dt class="sr-only">Contests</dt>
+              <dd class="hero-stat-value">100+</dd>
+              <dd class="hero-stat-label">Contests</dd>
+            </div>
+            <div class="hero-stat">
+              <dt class="sr-only">Projects</dt>
+              <dd class="hero-stat-value">6</dd>
+              <dd class="hero-stat-label">Featured projects</dd>
+            </div>
+          </dl>
         </div>
         <div class="hero-image">
           <div class="hero-placeholder">
             <img src="assets/images/profile-picture.jpg" alt="Rajesh Biswas - Profile Picture"
-              class="hero-profile-img" />
+              class="hero-profile-img" loading="eager" fetchpriority="high" />
           </div>
-          <h2>rajesh_1920</h2>
+          <p class="hero-handle">@rajesh_1920</p>
         </div>
       </div>
       <div class="scroll-indicator">
@@ -104,7 +131,9 @@
     <!-- About Section -->
     <section id="about" class="about section-padding bg-alternate">
       <div class="container">
+        <p class="section-eyebrow">Background</p>
         <h2 class="section-title">About Me</h2>
+        <p class="section-subtitle">CS student focused on algorithms, ML, and clean, scalable web apps.</p>
         <div class="about-content">
           <div class="about-text">
             <p class="about-intro">
@@ -162,7 +191,9 @@
     <!-- Skills Section -->
     <section id="skills" class="skills section-padding">
       <div class="container">
+        <p class="section-eyebrow">Stack</p>
         <h2 class="section-title">Technical Skills</h2>
+        <p class="section-subtitle">A practical toolkit for contests, data, and full-stack delivery.</p>
 
         <div class="skills-grid">
           <!-- Programming Languages -->
@@ -309,7 +340,9 @@
     <!-- Projects Section -->
     <section id="projects" class="projects section-padding bg-alternate">
       <div class="container">
+        <p class="section-eyebrow">Selected work</p>
         <h2 class="section-title">Featured Projects</h2>
+        <p class="section-subtitle">Filter by area — each card links to code and a live demo.</p>
 
         <!-- Project Filters -->
         <div class="project-filters">
@@ -355,7 +388,7 @@
                 <a href="#" class="btn-link" aria-label="View Live Demo">
                   <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
                     <path
-                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                      d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42L17.59 5H14V3zM5 5h6v2H7v10h10v-4h2v6H5V5z" />
                   </svg>
                 </a>
               </div>
@@ -397,7 +430,7 @@
                 <a href="#" class="btn-link" aria-label="View Live Demo">
                   <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
                     <path
-                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                      d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42L17.59 5H14V3zM5 5h6v2H7v10h10v-4h2v6H5V5z" />
                   </svg>
                 </a>
               </div>
@@ -438,7 +471,7 @@
                 <a href="#" class="btn-link" aria-label="View Live Demo">
                   <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
                     <path
-                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                      d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42L17.59 5H14V3zM5 5h6v2H7v10h10v-4h2v6H5V5z" />
                   </svg>
                 </a>
               </div>
@@ -479,7 +512,7 @@
                 <a href="#" class="btn-link" aria-label="View Live Demo">
                   <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
                     <path
-                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                      d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42L17.59 5H14V3zM5 5h6v2H7v10h10v-4h2v6H5V5z" />
                   </svg>
                 </a>
               </div>
@@ -522,7 +555,7 @@
                 <a href="#" class="btn-link" aria-label="View Live Demo">
                   <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
                     <path
-                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                      d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42L17.59 5H14V3zM5 5h6v2H7v10h10v-4h2v6H5V5z" />
                   </svg>
                 </a>
               </div>
@@ -561,7 +594,7 @@
                 <a href="#" class="btn-link" aria-label="View Live Demo">
                   <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
                     <path
-                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                      d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42L17.59 5H14V3zM5 5h6v2H7v10h10v-4h2v6H5V5z" />
                   </svg>
                 </a>
               </div>
@@ -578,7 +611,13 @@
     <!-- Competitive Programming Section -->
     <section id="cp" class="cp-stats section-padding">
       <div class="container">
+        <p class="section-eyebrow">Proof of practice</p>
         <h2 class="section-title">Competitive Programming</h2>
+        <p class="section-subtitle">Consistent contest participation across four platforms.</p>
+        <div class="cp-total" role="status">
+          <span class="cp-total-value">2000+</span>
+          <span class="cp-total-label">total problems solved across platforms</span>
+        </div>
 
         <div class="cp-stats-grid">
           <!-- Codeforces Stats -->
@@ -599,7 +638,7 @@
               <span class="cp-label">Problems Solved</span>
               <span class="cp-value">1500+</span>
             </div>
-            <div class="cp-badge badge-expert">Speacialist</div>
+            <div class="cp-badge badge-expert">Specialist</div>
           </article>
 
           <!-- LeetCode Stats -->
@@ -671,8 +710,9 @@
     <!-- Contact Section -->
     <section id="contact" class="contact section-padding bg-alternate">
       <div class="container">
+        <p class="section-eyebrow">Contact</p>
         <h2 class="section-title">Get in Touch</h2>
-        <p class="contact-subtitle">
+        <p class="section-subtitle contact-subtitle">
           Have a question or want to collaborate? Feel free to reach out!
         </p>
 
@@ -802,7 +842,7 @@
 
       <div class="footer-bottom">
         <p class="copyright">
-          &copy; 2026 Rajesh Biswas. All rights reserved.
+          &copy; <span id="year">2026</span> Rajesh Biswas. All rights reserved.
         </p>
         <button class="back-to-top" id="back-to-top" aria-label="Back to top">↑ Top</button>
       </div>
