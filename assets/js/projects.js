@@ -113,15 +113,12 @@ const Projects = (() => {
     const lowerQuery = query.toLowerCase();
 
     projectCards.forEach((card) => {
-      const title = card
-        .querySelector(".project-title")
-        .textContent.toLowerCase();
+      const title = card.querySelector(".project-title").textContent.toLowerCase();
       const description = card
         .querySelector(".project-description")
         .textContent.toLowerCase();
 
-      const matches =
-        title.includes(lowerQuery) || description.includes(lowerQuery);
+      const matches = title.includes(lowerQuery) || description.includes(lowerQuery);
 
       card.style.opacity = matches ? "1" : "0.3";
       card.style.pointerEvents = matches ? "auto" : "none";

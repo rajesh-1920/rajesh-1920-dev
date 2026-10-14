@@ -1,0 +1,45 @@
+# Dependencies
+node_modules/
+# NOTE: package-lock.json is intentionally committed for reproducible CI.
+yarn.lock
+pnpm-lock.yaml
+
+# Build outputs
+dist/
+build/
+out/
+.next/
+.nuxt/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors / IDE
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+npm-debug.log*
+logs/
+
+# Env / secrets
+.env
+.env.*
+!.env.example
+
+# Vercel
+.vercel
+
+# Coverage / temp
+coverage/
+.nyc_output/
+tmp/
+temp/

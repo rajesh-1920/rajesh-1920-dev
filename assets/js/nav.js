@@ -72,10 +72,7 @@ const Navigation = (() => {
       const sectionTop = section.offsetTop - offset;
       const sectionHeight = section.clientHeight;
 
-      if (
-        window.scrollY >= sectionTop &&
-        window.scrollY < sectionTop + sectionHeight
-      ) {
+      if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
         currentSection = section.getAttribute("id");
       }
     });

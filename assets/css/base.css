@@ -263,11 +263,7 @@ textarea {
 
 /* Button Primary */
 .btn-primary {
-  background: linear-gradient(
-    135deg,
-    var(--accent-primary),
-    var(--accent-secondary)
-  );
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
   color: var(--bg-primary);
   border: 2px solid var(--accent-primary);
   box-shadow: var(--shadow-glow-primary);
@@ -487,22 +483,14 @@ textarea {
   transform: translateX(-50%);
   width: 60px;
   height: 4px;
-  background: linear-gradient(
-    90deg,
-    var(--accent-primary),
-    var(--accent-secondary)
-  );
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
   border-radius: var(--radius-full);
 }
 
 /* ===== ACCENT TEXT ===== */
 
 .accent-text {
-  background: linear-gradient(
-    135deg,
-    var(--accent-primary),
-    var(--accent-secondary)
-  );
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

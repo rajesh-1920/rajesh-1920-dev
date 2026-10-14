@@ -6,7 +6,6 @@
 
 /* Extra Small Devices (Mobile) */
 @media (max-width: 640px) {
-
   /* Typography */
   :root {
     --section-py: var(--space-12);
@@ -246,7 +245,7 @@
   }
 
   .section-title::after {
-    bottom: -var(--space-2);
+    bottom: calc(var(--space-2) * -1);
   }
 
   /* Container */
@@ -413,7 +412,6 @@
 /* ===== PRINT STYLES ===== */
 
 @media print {
-
   .navbar,
   .footer,
   .hero-buttons,
@@ -451,7 +449,6 @@
 /* ===== REDUCED MOTION ===== */
 
 @media (prefers-reduced-motion: reduce) {
-
   *,
   *::before,
   *::after {

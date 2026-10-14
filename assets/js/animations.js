@@ -59,9 +59,7 @@ const Animations = (() => {
    * Handle elements that should be visible initially
    */
   const handleInitialReveals = () => {
-    const initialElements = document.querySelectorAll(
-      ".navbar, .hero .scroll-indicator",
-    );
+    const initialElements = document.querySelectorAll(".navbar, .hero .scroll-indicator");
     initialElements.forEach((el) => {
       el.style.opacity = "1";
       el.style.transform = "translateY(0)";
@@ -131,11 +129,7 @@ const Animations = (() => {
   /**
    * Trigger element animation
    */
-  const triggerAnimation = (
-    element,
-    animationType = "slideUp",
-    duration = 0.6,
-  ) => {
+  const triggerAnimation = (element, animationType = "slideUp", duration = 0.6) => {
     element.style.animation = `${animationType} ${duration}s ease-out`;
 
     element.addEventListener(

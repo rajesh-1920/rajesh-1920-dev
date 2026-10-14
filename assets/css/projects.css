@@ -42,9 +42,7 @@
 }
 
 .filter-btn.active {
-  background: linear-gradient(135deg,
-      var(--accent-primary),
-      var(--accent-secondary));
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
   color: var(--bg-primary);
   border-color: var(--accent-primary);
   box-shadow: var(--shadow-glow-primary);
@@ -91,9 +89,7 @@
 .project-image {
   width: 100%;
   aspect-ratio: 16 / 10;
-  background: linear-gradient(135deg,
-      rgba(0, 255, 136, 0.05),
-      rgba(56, 189, 248, 0.05));
+  background: linear-gradient(135deg, rgba(0, 255, 136, 0.05), rgba(56, 189, 248, 0.05));
   border-bottom: 1px solid var(--border-color);
   display: flex;
   align-items: center;
@@ -243,10 +239,12 @@
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(90deg,
-      var(--accent-primary),
-      var(--accent-secondary),
-      transparent);
+  background: linear-gradient(
+    90deg,
+    var(--accent-primary),
+    var(--accent-secondary),
+    transparent
+  );
   opacity: 0;
   transition: opacity var(--transition-base);
   border-radius: var(--radius-xl) var(--radius-xl) 0 0;
@@ -396,9 +394,7 @@
 }
 
 [data-theme="light"] .project-image::after {
-  background: linear-gradient(135deg,
-      rgba(5, 150, 105, 0.08),
-      rgba(37, 99, 235, 0.08));
+  background: linear-gradient(135deg, rgba(5, 150, 105, 0.08), rgba(37, 99, 235, 0.08));
 }
 
 [data-theme="light"] .project-card:hover .project-image::before {
@@ -451,7 +447,12 @@
 
 /* CP card enhancements */
 [data-theme="light"] .cp-card::before {
-  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary), transparent);
+  background: linear-gradient(
+    90deg,
+    var(--accent-primary),
+    var(--accent-secondary),
+    transparent
+  );
 }
 
 [data-theme="light"] .cp-stat {
