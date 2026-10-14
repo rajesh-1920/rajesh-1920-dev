@@ -21,18 +21,10 @@ export default function Hero() {
         <div className="mt-12 md:flex md:items-center md:gap-8">
           <div className="hero-text md:w-1/2">
             <div className="hero-buttons">
-              <a
-                href="#projects"
-                className="btn btn-primary"
-                data-scroll
-              >
+              <a href="#projects" className="btn btn-primary" data-scroll>
                 View Projects
               </a>
-              <a
-                href="#contact"
-                className="btn btn-outline ml-4"
-                data-scroll
-              >
+              <a href="#contact" className="btn btn-outline ml-4" data-scroll>
                 Contact Me
               </a>
             </div>
@@ -51,9 +43,7 @@ export default function Hero() {
                 <dd className="hero-stat-value font-display font-bold text-2xl text-accent-primary">
                   100+
                 </dd>
-                <dd className="hero-stat-label text-sm text-ink-tertiary">
-                  Contests
-                </dd>
+                <dd className="hero-stat-label text-sm text-ink-tertiary">Contests</dd>
               </div>
               <div className="hero-stat">
                 <dt className="sr-only">Projects</dt>

@@ -30,8 +30,20 @@ export default function Skills() {
                     <div className="skill-bar">
                       <div
                         className="skill-progress"
-                        style={{ width: skill.name.includes("Expert") ? "95%" : skill.name.includes("Advanced") ? "85%" : "75%" }}
-                        aria-valuenow={parseInt(skill.name.includes("Expert") ? "95" : skill.name.includes("Advanced") ? "85" : "75")}
+                        style={{
+                          width: skill.name.includes("Expert")
+                            ? "95%"
+                            : skill.name.includes("Advanced")
+                              ? "85%"
+                              : "75%",
+                        }}
+                        aria-valuenow={parseInt(
+                          skill.name.includes("Expert")
+                            ? "95"
+                            : skill.name.includes("Advanced")
+                              ? "85"
+                              : "75",
+                        )}
                         aria-valuemin={0}
                         aria-valuemax={100}
                       />

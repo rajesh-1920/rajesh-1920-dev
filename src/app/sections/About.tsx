@@ -12,7 +12,9 @@ export default function About() {
           {/* Education */}
           <article className="bg-bg-secondary rounded-lg p-6">
             <h3 className="font-display font-semibold mb-2">Education</h3>
-            <p className="text-base">Bachelor of Technology in Computer Science and Engineering</p>
+            <p className="text-base">
+              Bachelor of Technology in Computer Science and Engineering
+            </p>
             <p className="text-sm text-ink-tertiary">Currently Pursuing</p>
           </article>
 

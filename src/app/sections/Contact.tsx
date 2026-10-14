@@ -16,9 +16,15 @@ export default function Contact() {
 
     const formData = {
       name: (e.currentTarget.elements.namedItem("name") as HTMLInputElement).value.trim(),
-      email: (e.currentTarget.elements.namedItem("email") as HTMLInputElement).value.trim(),
-      subject: (e.currentTarget.elements.namedItem("subject") as HTMLInputElement).value.trim(),
-      message: (e.currentTarget.elements.namedItem("message") as HTMLTextAreaElement).value.trim(),
+      email: (
+        e.currentTarget.elements.namedItem("email") as HTMLInputElement
+      ).value.trim(),
+      subject: (
+        e.currentTarget.elements.namedItem("subject") as HTMLInputElement
+      ).value.trim(),
+      message: (
+        e.currentTarget.elements.namedItem("message") as HTMLTextAreaElement
+      ).value.trim(),
     };
 
     // Simulate API call
@@ -109,9 +115,7 @@ export default function Contact() {
 
           {showMessage && (
             <div className="mt-6 p-4 rounded-lg text-center">
-              <span className={`text-${messageType} font-medium`}>
-                {messageText}
-              </span>
+              <span className={`text-${messageType} font-medium`}>{messageText}</span>
             </div>
           )}
         </div>
@@ -119,20 +123,14 @@ export default function Contact() {
         <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="contact-card bg-bg-secondary rounded-lg p-6">
             <h3 className="contact-card-title">Email</h3>
-            <a
-              href="mailto:rajesh@example.com"
-              className="contact-value"
-            >
+            <a href="mailto:rajesh@example.com" className="contact-value">
               rajesh@example.com
             </a>
           </div>
 
           <div className="contact-card bg-bg-secondary rounded-lg p-6">
             <h3 className="contact-card-title">Phone</h3>
-            <a
-              href="tel:+8801400234847"
-              className="contact-value"
-            >
+            <a href="tel:+8801400234847" className="contact-value">
               +8801400234847
             </a>
           </div>

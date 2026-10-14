@@ -28,10 +28,7 @@ export function Navbar() {
         >
           Rajesh<span className="text-accent-primary">.dev</span>
         </Link>
-        <div
-          className="hidden items-center gap-6 md:flex"
-          id="primary-navigation"
-        >
+        <div className="hidden items-center gap-6 md:flex" id="primary-navigation">
           {links.map((l) => (
             <a
               key={l.href}
@@ -41,10 +38,7 @@ export function Navbar() {
               {l.label}
             </a>
           ))}
-          <a
-            href="#contact"
-            className="btn btn-primary !px-4 !py-2"
-          >
+          <a href="#contact" className="btn btn-primary !px-4 !py-2">
             Hire me
           </a>
         </div>
