@@ -350,54 +350,82 @@
   border: 1px solid rgba(249, 115, 22, 0.4);
 }
 
+/* CP Total banner */
+.cp-total {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: var(--space-3);
+  margin: 0 auto var(--space-12);
+  padding: var(--space-4) var(--space-8);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-full);
+  background: rgba(148, 163, 184, 0.08);
+  max-width: max-content;
+}
+
+.cp-total-value {
+  font-family: var(--font-display);
+  font-size: var(--fs-3xl);
+  font-weight: var(--fw-extrabold);
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.cp-total-label {
+  color: var(--text-secondary);
+  font-size: var(--fs-sm);
+}
+
 /* ===== LIGHT MODE SPECIFIC STYLES ===== */
 
 [data-theme="light"] .project-card,
 [data-theme="light"] .cp-card {
-  background: white;
-  border-color: rgba(0, 26, 51, 0.2);
+  background: var(--bg-secondary);
+  border-color: var(--border-color);
+  box-shadow: var(--shadow-sm);
 }
 
 [data-theme="light"] .project-card:hover,
 [data-theme="light"] .cp-card:hover {
-  background: white;
-  border-color: #0000ff;
-  box-shadow:
-    0 10px 20px -5px rgba(0, 0, 255, 0.2),
-    0 0 0 1px rgba(0, 0, 255, 0.1);
+  background: var(--bg-secondary);
+  border-color: var(--accent-primary);
+  box-shadow: var(--shadow-lg);
 }
 
 [data-theme="light"] .project-image::after {
   background: linear-gradient(135deg,
-      rgba(0, 0, 255, 0.1),
-      rgba(0, 204, 0, 0.1));
+      rgba(5, 150, 105, 0.08),
+      rgba(37, 99, 235, 0.08));
 }
 
 [data-theme="light"] .project-card:hover .project-image::before {
-  background: linear-gradient(135deg, transparent, rgba(0, 0, 255, 0.15));
+  background: linear-gradient(135deg, transparent, rgba(5, 150, 105, 0.12));
 }
 
 [data-theme="light"] .tech-tag {
-  background: rgba(0, 0, 255, 0.1);
-  border-color: rgba(0, 0, 255, 0.3);
-  color: var(--link-color);
+  background: rgba(5, 150, 105, 0.1);
+  border-color: rgba(5, 150, 105, 0.3);
+  color: var(--accent-primary);
 }
 
 [data-theme="light"] .tech-tag.web {
-  background: rgba(0, 204, 0, 0.1);
-  border-color: rgba(0, 204, 0, 0.3);
+  background: rgba(5, 150, 105, 0.1);
+  border-color: rgba(5, 150, 105, 0.3);
   color: var(--accent-primary);
 }
 
 [data-theme="light"] .tech-tag.ml {
-  background: rgba(0, 0, 255, 0.1);
-  border-color: rgba(0, 0, 255, 0.3);
+  background: rgba(37, 99, 235, 0.1);
+  border-color: rgba(37, 99, 235, 0.3);
   color: var(--link-color);
 }
 
 [data-theme="light"] .tech-tag.tools {
-  background: rgba(255, 153, 0, 0.1);
-  border-color: rgba(255, 153, 0, 0.3);
+  background: rgba(234, 88, 12, 0.1);
+  border-color: rgba(234, 88, 12, 0.3);
   color: var(--accent-tertiary);
 }
 
@@ -423,104 +451,56 @@
 
 /* CP card enhancements */
 [data-theme="light"] .cp-card::before {
-  background: linear-gradient(135deg,
-      rgba(37, 99, 235, 0.03),
-      rgba(5, 150, 105, 0.03));
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary), transparent);
 }
 
 [data-theme="light"] .cp-stat {
-  background: rgba(37, 99, 235, 0.04);
-  border-left: 3px solid #2563eb;
-}
-
-[data-theme="light"] .cp-stat-number {
-  color: #2563eb;
-  font-weight: var(--fw-bold);
-}
-
-[data-theme="light"] .cp-stat-label {
-  color: #6b7280;
-}
-
-[data-theme="light"] .project-link {
-  background: rgba(59, 130, 246, 0.08);
-}
-
-[data-theme="light"] .project-link:hover {
-  background: rgba(59, 130, 246, 0.15);
-  color: var(--accent-secondary);
-}
-
-[data-theme="light"] .cp-stat {
-  background: rgba(59, 130, 246, 0.05);
-}
-
-[data-theme="light"] .badge-expert {
-  background: rgba(16, 185, 129, 0.12);
-  border-color: rgba(16, 185, 129, 0.3);
-}
-
-[data-theme="light"] .badge-advanced {
-  background: rgba(59, 130, 246, 0.12);
-  border-color: rgba(59, 130, 246, 0.3);
-}
-
-[data-theme="light"] .badge-intermediate {
-  background: rgba(245, 158, 11, 0.12);
-  border-color: rgba(245, 158, 11, 0.3);
+  border-bottom-color: var(--border-color);
 }
 
 /* Typography improvements */
 [data-theme="light"] .project-title,
 [data-theme="light"] .cp-platform {
-  color: #001a33;
-  /* Dark blue */
-  font-weight: 700;
+  color: var(--text-primary);
 }
 
 [data-theme="light"] .project-description {
-  color: #003366;
-  /* Medium dark blue */
+  color: var(--text-secondary);
 }
 
 [data-theme="light"] .filter-btn {
-  background: #ffff00;
-  /* Yellow filter buttons */
-  color: #001a33;
-  border: 2px solid #ffcc00;
-  font-weight: 700;
+  background: transparent;
+  color: var(--text-secondary);
+  border: 2px solid var(--border-color);
 }
 
 [data-theme="light"] .filter-btn:hover {
-  border-color: #ffcc00;
-  background: #ffcc00;
-  color: #000;
+  border-color: var(--accent-primary);
+  background: rgba(5, 150, 105, 0.08);
+  color: var(--accent-primary);
   transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow-sm);
 }
 
 [data-theme="light"] .filter-btn.active {
-  background: #0000ff;
-  /* Blue when active */
-  border-color: #0000ff;
-  color: white;
-  box-shadow:
-    0 4px 12px rgba(0, 0, 255, 0.3),
-    0 2px 4px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  border-color: transparent;
+  color: #fff;
+  box-shadow: var(--shadow-glow-primary);
 }
 
 /* Project link refinements */
 [data-theme="light"] .project-link,
 [data-theme="light"] .project-links .btn-link {
-  background: white;
-  border-color: rgba(0, 26, 51, 0.2);
-  color: #0000ff;
+  background: transparent;
+  border-color: var(--border-color);
+  color: var(--text-secondary);
 }
 
-\n\n[data-theme="light"] .project-link:hover,
+[data-theme="light"] .project-link:hover,
 [data-theme="light"] .project-links .btn-link:hover {
-  background: rgba(0, 0, 255, 0.1);
-  border-color: #0000ff;
-  color: #0066ff;
-  box-shadow: 0 2px 8px rgba(0, 0, 255, 0.2);
+  background: rgba(5, 150, 105, 0.1);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  box-shadow: none;
 }
