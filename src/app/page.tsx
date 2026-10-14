@@ -9,6 +9,7 @@ import About from "./sections/About";
 import Skills from "./sections/Skills";
 import Projects from "./sections/Projects";
 import CpStats from "./sections/CpStats";
+import Cv from "./sections/Cv";
 import Contact from "./sections/Contact";
 
 export default function Page() {
@@ -28,6 +29,7 @@ export default function Page() {
         <Skills />
         <Projects />
         <CpStats />
+        <Cv />
         <Contact />
       </main>
 
