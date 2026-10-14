@@ -75,6 +75,9 @@ const Animations = (() => {
     const typingText = document.querySelector(".typing-text");
     if (!typingText) return;
 
+    // Respect reduced motion: leave full text visible
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
     const fullText = typingText.textContent.trim();
     typingText.textContent = "";
 

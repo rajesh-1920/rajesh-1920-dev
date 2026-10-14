@@ -10,7 +10,7 @@
   text-align: center;
   font-size: var(--fs-lg);
   color: var(--text-secondary);
-  margin-bottom: var(--space-12);
+  margin-bottom: 0;
   animation: slideUp var(--duration-slow) var(--ease-out);
 }
 
@@ -265,17 +265,15 @@
 
 /* Contact Cards */
 [data-theme="light"] .contact-card {
-  background: rgba(255, 255, 255, 0.9);
-  border: 2px solid rgba(0, 102, 204, 0.2);
-  backdrop-filter: blur(10px);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
 }
 
 [data-theme="light"] .contact-card:hover {
-  background: rgba(255, 255, 255, 1);
-  border-color: var(--accent-secondary);
-  box-shadow:
-    0 10px 30px -5px rgba(0, 102, 204, 0.2),
-    0 0 20px rgba(0, 102, 204, 0.15);
+  background: var(--bg-secondary);
+  border-color: var(--accent-primary);
+  box-shadow: var(--shadow-md);
   transform: translateY(-4px);
 }
 
@@ -305,10 +303,9 @@
 /* Form Inputs */
 [data-theme="light"] .form-input,
 [data-theme="light"] .form-textarea {
-  background: rgba(255, 255, 255, 0.95);
-  border: 2px solid rgba(0, 102, 204, 0.25);
+  background: var(--bg-secondary);
+  border: 2px solid var(--border-color);
   color: var(--text-primary);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 [data-theme="light"] .form-input::placeholder,
@@ -318,11 +315,9 @@
 
 [data-theme="light"] .form-input:focus,
 [data-theme="light"] .form-textarea:focus {
-  background: rgba(255, 255, 255, 1);
-  border-color: #0066cc;
-  box-shadow:
-    0 0 0 4px rgba(0, 102, 204, 0.12),
-    0 2px 8px rgba(0, 102, 204, 0.1);
+  background: var(--bg-secondary);
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 4px rgba(5, 150, 105, 0.12);
 }
 
 /* Form Validation States */
@@ -359,28 +354,18 @@
 
 /* Submit Button */
 [data-theme="light"] .btn-submit {
-  background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
-  color: white;
-  font-weight: var(--fw-bold);
-  box-shadow:
-    0 4px 14px rgba(0, 102, 204, 0.3),
-    0 2px 6px rgba(0, 102, 204, 0.2);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  color: #fff;
+  box-shadow: var(--shadow-glow-primary);
 }
 
 [data-theme="light"] .btn-submit:hover {
-  background: linear-gradient(135deg, #0052a3 0%, #003d7a 100%);
-  box-shadow:
-    0 8px 24px rgba(0, 102, 204, 0.4),
-    0 4px 12px rgba(0, 102, 204, 0.25);
   transform: translateY(-2px);
+  box-shadow: var(--shadow-glow-strong);
 }
 
 [data-theme="light"] .btn-submit:active {
   transform: translateY(0);
-  box-shadow:
-    0 4px 14px rgba(0, 102, 204, 0.3),
-    0 2px 6px rgba(0, 102, 204, 0.2);
 }
 
 [data-theme="light"] .btn-submit.loading {
@@ -394,31 +379,28 @@
 
 /* Social Links */
 [data-theme="light"] .social-link {
-  background: rgba(255, 255, 255, 0.9);
-  border: 2px solid rgba(0, 102, 204, 0.2);
-  color: #0066cc;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: transparent;
+  border: 2px solid var(--border-color);
+  color: var(--text-secondary);
 }
 
 [data-theme="light"] .social-link:hover {
-  background: #0066cc;
-  border-color: #0066cc;
-  color: white;
-  box-shadow: 0 6px 20px rgba(0, 102, 204, 0.35);
-  transform: translateY(-3px) scale(1.1);
+  background: var(--accent-primary);
+  border-color: var(--accent-primary);
+  color: #fff;
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px) scale(1.05);
 }
 
 [data-theme="light"] .social-link:active {
-  transform: translateY(-1px) scale(1.05);
+  transform: translateY(-1px) scale(1.02);
 }
 
 /* Contact Icon Styling */
 [data-theme="light"] .contact-icon {
-  color: #0066cc;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: var(--accent-primary);
 }
 
 [data-theme="light"] .contact-card:hover .contact-icon {
-  transform: scale(1.15);
-  color: #003d7a;
+  transform: scale(1.1);
 }
