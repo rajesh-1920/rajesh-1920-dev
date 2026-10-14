@@ -1,5 +1,6 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+const path = require("path");
+
+module.exports = {
   reactStrictMode: true,
   poweredByHeader: false,
   images: {
@@ -20,6 +21,11 @@ const nextConfig = {
       },
     ];
   },
+  webpack(config) {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      "@": path.join(process.cwd(), "src"),
+    };
+    return config;
+  },
 };
-
-export default nextConfig;
