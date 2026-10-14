@@ -1,3 +1,5 @@
+"use client";
+
 import "./globals.css";
 import { ThemeProvider } from "./layout/ThemeProvider";
 import { Navbar } from "./layout/Navbar";

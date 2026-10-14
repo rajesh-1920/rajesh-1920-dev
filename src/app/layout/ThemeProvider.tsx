@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useCallback, useContext, useEffect, useState } from "react";
+import { createContext, useCallback, useContext, useEffect, useState, useRef } from "react";
 
 export type Theme = "dark" | "light";
 
@@ -15,15 +15,20 @@ export function useTheme() {
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>("dark");
+  const themeRef = useRef<Theme | null>(null);
 
   useEffect(() => {
-    const saved = localStorage.getItem("portfolio-theme") as Theme | null;
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const initial = saved ?? (prefersDark ? "dark" : "light");
-    setTheme(initial);
+    if (themeRef.current === null && typeof window !== "undefined") {
+      const saved = localStorage.getItem("portfolio-theme") as Theme | null;
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const initial = saved ?? (prefersDark ? "dark" : "light");
+      setTheme(initial);
+      themeRef.current = initial;
+    }
   }, []);
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
     const root = document.documentElement;
     root.classList.toggle("dark", theme === "dark");
     root.classList.toggle("light", theme === "light");
