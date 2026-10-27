@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 
-import { site } from "@/data/site";
+import { basePath, site } from "@/data/site";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -18,8 +18,8 @@ export const metadata: Metadata = {
   authors: [{ name: site.name }],
   creator: site.name,
   alternates: { canonical: "/" },
-  icons: { icon: [{ url: "/favicon.svg", type: "image/svg+xml" }] },
-  manifest: "/site.webmanifest",
+  icons: { icon: [{ url: `${basePath}/favicon.svg`, type: "image/svg+xml" }] },
+  manifest: `${basePath}/site.webmanifest`,
   openGraph: {
     type: "website",
     locale: "en_US",

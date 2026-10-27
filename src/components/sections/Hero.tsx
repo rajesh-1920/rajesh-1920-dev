@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { site } from "@/data/site";
+import { basePath, site } from "@/data/site";
 import { projects } from "@/data/projects";
 
 const stats = [
@@ -49,7 +49,7 @@ export default function Hero() {
           <div className="relative mt-12 md:mt-0 md:w-1/2">
             <div className="relative aspect-square overflow-hidden rounded-xl bg-bg-secondary">
               <Image
-                src="/images/profile-picture.jpg"
+                src={`${basePath}/images/profile-picture.jpg`}
                 alt={`${site.name} - Profile Picture`}
                 fill
                 sizes="(min-width: 768px) 50vw, 100vw"

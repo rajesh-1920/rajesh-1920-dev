@@ -66,7 +66,9 @@ Open <http://localhost:3000>.
 │       └── cpStats.ts           # Competitive-programming platform stats
 ├── public/                      # Static assets served at / (images, favicon, manifest)
 ├── .github/
-│   ├── workflows/ci.yml         # CI: format, lint, typecheck, build
+│   ├── workflows/
+│   │   ├── ci.yml               # CI: format, lint, typecheck, build
+│   │   └── deploy-pages.yml     # Static export + GitHub Pages deployment
 │   ├── CONTRIBUTING.md
 │   └── SECURITY.md
 └── next.config.js               # Security + cache headers, image optimisation
@@ -76,14 +78,17 @@ All text and links live in `src/data/` — components never hardcode content.
 
 ## Configuration
 
-Set the canonical origin (used for `metadataBase`, Open Graph URLs, `robots.txt`, and `sitemap.xml`):
+| Variable                | Used by                 | Purpose                                                          |
+| ----------------------- | ----------------------- | ---------------------------------------------------------------- |
+| `NEXT_PUBLIC_SITE_URL`  | both targets            | Canonical origin for `metadataBase`, Open Graph, robots, sitemap |
+| `NEXT_PUBLIC_BASE_PATH` | GitHub Pages build only | Sub-path the export is served from (`/rajesh-1920-dev`)          |
 
 ```bash
 cp .env.example .env.local
 NEXT_PUBLIC_SITE_URL=https://example.com
 ```
 
-Defaults to the GitHub Pages mirror when unset.
+`NEXT_PUBLIC_SITE_URL` defaults to the GitHub Pages mirror when unset. Both values are inlined at build time.
 
 ## SEO & metadata
 
@@ -93,8 +98,8 @@ Defaults to the GitHub Pages mirror when unset.
 
 ## Deployment
 
-- **Vercel (production)** — push to `main` deploys. Set `NEXT_PUBLIC_SITE_URL` in the Vercel project environment settings so canonical/Open Graph URLs are correct.
-- **GitHub Pages** — the repo still uses a legacy branch deployment that publishes the repository root, so the Pages URL currently renders this README rather than the app. It needs a static-export workflow (or should be disabled). Vercel is the real deployment.
+- **Vercel (production)** — push to `main` deploys the standard Next.js build. Set `NEXT_PUBLIC_SITE_URL` in the Vercel project environment settings.
+- **GitHub Pages (mirror)** — `.github/workflows/deploy-pages.yml` runs the same code as a static export (`output: "export"`, base path `/rajesh-1920-dev`) and deploys it through GitHub Actions. Pages must be configured with **Source: GitHub Actions**.
 - **Custom domain** — Vercel Dashboard → Settings → Domains.
 
 ## Contributing

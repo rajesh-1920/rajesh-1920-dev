@@ -3,6 +3,12 @@ export interface SocialLink {
   href: string;
 }
 
+/**
+ * Sub-path the app is served from (e.g. "/rajesh-1920-dev" on GitHub Pages).
+ * Empty for root deployments such as Vercel.
+ */
+export const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 export interface SiteConfig {
   /** Canonical origin (no trailing slash). Override with NEXT_PUBLIC_SITE_URL. */
   url: string;
