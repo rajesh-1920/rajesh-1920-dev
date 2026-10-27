@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Design tokens ported from assets/css/variables.css */
+/* Design tokens */
 :root {
   --bg-primary: 15 23 42;
   --bg-secondary: 26 39 68;
@@ -38,6 +38,17 @@ body {
   @apply bg-bg-primary text-ink-primary font-sans antialiased;
 }
 
+/* Keep anchored sections clear of the sticky navbar */
+section[id] {
+  scroll-margin-top: 5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 @layer components {
   .container-x {
     @apply mx-auto w-full max-w-container px-4;
@@ -45,14 +56,15 @@ body {
   .section-padding {
     @apply py-20;
   }
+  /* Alternating band between sections */
+  .section-band {
+    @apply bg-bg-tertiary;
+  }
   .section-eyebrow {
     @apply text-sm font-semibold uppercase tracking-widest text-accent-primary;
   }
   .section-title {
     @apply font-display text-3xl font-extrabold sm:text-4xl;
-  }
-  .section-subtitle {
-    @apply mt-2 text-ink-secondary;
   }
   .btn {
     @apply inline-flex items-center justify-center rounded-lg px-5 py-2.5 text-sm font-semibold transition;
@@ -62,5 +74,29 @@ body {
   }
   .btn-outline {
     @apply border border-accent-primary/40 text-ink-primary hover:bg-accent-primary/10;
+  }
+  /* Icon/text link used for project + profile actions */
+  .btn-link {
+    @apply inline-flex items-center gap-1.5 text-sm font-medium text-accent-primary hover:underline;
+  }
+  /* Segmented filter control (Projects) */
+  .filter-btn {
+    @apply rounded-lg border border-white/10 px-4 py-2 text-sm text-ink-secondary transition hover:border-accent-primary/40 hover:text-ink-primary;
+  }
+  .filter-btn[aria-pressed="true"] {
+    @apply border-accent-primary bg-accent-primary/10 text-ink-primary;
+  }
+  /* Form controls (Contact) */
+  .form-group {
+    @apply mb-4;
+  }
+  .form-label {
+    @apply mb-1.5 block text-sm font-medium text-ink-secondary;
+  }
+  .form-input {
+    @apply w-full rounded-lg border border-white/10 bg-bg-tertiary px-3 py-2.5 text-sm text-ink-primary outline-none transition placeholder:text-ink-tertiary focus:border-accent-primary;
+  }
+  .form-textarea {
+    @apply resize-y;
   }
 }

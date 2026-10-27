@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://rajesh-1920.github.io/rajesh-1920-dev/sitemap.xml

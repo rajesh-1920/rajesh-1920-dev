@@ -1,39 +1,21 @@
-"use client";
-
-import "./globals.css";
-import { ThemeProvider } from "./layout/ThemeProvider";
-import { Navbar } from "./layout/Navbar";
-import { Footer } from "./layout/Footer";
-import Home from "./sections/Home";
-import About from "./sections/About";
-import Skills from "./sections/Skills";
-import Projects from "./sections/Projects";
-import CpStats from "./sections/CpStats";
-import Cv from "./sections/Cv";
-import Contact from "./sections/Contact";
+import Hero from "@/components/sections/Hero";
+import About from "@/components/sections/About";
+import Skills from "@/components/sections/Skills";
+import Projects from "@/components/sections/Projects";
+import CpStats from "@/components/sections/CpStats";
+import Cv from "@/components/sections/Cv";
+import Contact from "@/components/sections/Contact";
 
 export default function Page() {
   return (
-    <ThemeProvider>
-      <a
-        href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-white focus:px-4 focus:py-2 focus:text-black"
-      >
-        Skip to main content
-      </a>
-      <Navbar />
-
-      <main id="main-content">
-        <Home />
-        <About />
-        <Skills />
-        <Projects />
-        <CpStats />
-        <Cv />
-        <Contact />
-      </main>
-
-      <Footer />
-    </ThemeProvider>
+    <>
+      <Hero />
+      <About />
+      <Skills />
+      <Projects />
+      <CpStats />
+      <Cv />
+      <Contact />
+    </>
   );
 }

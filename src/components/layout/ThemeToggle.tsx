@@ -1,13 +1,13 @@
 "use client";
 
-import { useTheme, type Theme } from "./ThemeProvider";
-import Image from "next/image";
+import { useTheme } from "@/components/providers/ThemeProvider";
 
 export function ThemeToggle() {
   const { theme, toggle } = useTheme();
 
   return (
     <button
+      type="button"
       onClick={toggle}
       className="rounded-lg border border-white/10 px-3 py-2 text-sm"
       aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
@@ -15,7 +15,7 @@ export function ThemeToggle() {
     >
       {theme === "dark" ? (
         <svg
-          className="theme-icon-svg w-5 h-5"
+          className="h-5 w-5"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -29,7 +29,7 @@ export function ThemeToggle() {
         </svg>
       ) : (
         <svg
-          className="theme-icon-svg w-5 h-5"
+          className="h-5 w-5"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"

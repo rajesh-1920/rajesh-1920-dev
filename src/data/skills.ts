@@ -1,39 +1,76 @@
 export interface SkillCategory {
   title: string;
-  skills: SkillItem[];
+  skills: string[];
 }
 
-export interface SkillItem {
-  name: string;
-  level: string;
-}
-
-export const skills: SkillCategory[] = [
+export const skillCategories: SkillCategory[] = [
   {
-    title: "Programming Languages",
+    title: "Languages",
     skills: [
-      { name: "C++", level: "Expert" },
-      { name: "Python", level: "Advanced" },
-      { name: "JavaScript", level: "Intermediate" },
-      { name: "Java", level: "Intermediate" },
+      "C++",
+      "C",
+      "JavaScript",
+      "TypeScript",
+      "PHP",
+      "Python",
+      "Dart",
+      "Java",
+      "SQL",
     ],
   },
   {
-    title: "Web Development",
+    title: "Backend & Web",
     skills: [
-      { name: "HTML5", level: "Expert" },
-      { name: "CSS3", level: "Advanced" },
-      { name: "Responsive Design", level: "Advanced" },
-      { name: "DOM Manipulation", level: "Intermediate" },
+      "Node.js",
+      "Express",
+      "Next.js",
+      "React",
+      "REST APIs",
+      "PHP",
+      "HTML5",
+      "CSS3",
+      "Tailwind CSS",
+      "Bootstrap",
     ],
   },
   {
-    title: "Tools & Technologies",
+    title: "Databases",
+    skills: ["MySQL", "MongoDB"],
+  },
+  {
+    title: "Mobile",
+    skills: ["Flutter", "Dart", "Local Notifications"],
+  },
+  {
+    title: "Systems",
     skills: [
-      { name: "Git & GitHub", level: "Advanced" },
-      { name: "Linux", level: "Advanced" },
-      { name: "VS Code", level: "Expert" },
-      { name: "Docker", level: "Beginner" },
+      "Low-level C",
+      "x86-64 kernel dev",
+      "Limine bootloader",
+      "QEMU",
+      "Makefiles",
+    ],
+  },
+  {
+    title: "DevOps & Tools",
+    skills: [
+      "Git",
+      "GitHub",
+      "GitHub Actions (CI)",
+      "Docker",
+      "Linux (Kali)",
+      "VS Code",
+      "Android Studio",
+    ],
+  },
+  {
+    title: "Core CS",
+    skills: [
+      "Data Structures & Algorithms",
+      "OOP",
+      "DBMS",
+      "Operating Systems",
+      "Competitive Programming",
     ],
   },
 ];

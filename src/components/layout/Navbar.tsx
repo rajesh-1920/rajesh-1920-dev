@@ -1,7 +1,6 @@
-"use client";
-
 import Link from "next/link";
-import { useTheme } from "./ThemeProvider";
+
+import { ThemeToggle } from "@/components/layout/ThemeToggle";
 
 const links = [
   { href: "#home", label: "Home" },
@@ -14,8 +13,6 @@ const links = [
 ];
 
 export function Navbar() {
-  const { theme, toggle } = useTheme();
-
   return (
     <nav
       aria-label="Main navigation"
@@ -43,14 +40,7 @@ export function Navbar() {
             Hire me
           </a>
         </div>
-        <button
-          onClick={toggle}
-          className="rounded-lg border border-white/10 px-3 py-2 text-sm"
-          aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-          aria-pressed={theme === "light"}
-        >
-          {theme === "dark" ? "☀" : "☾"}
-        </button>
+        <ThemeToggle />
       </div>
     </nav>
   );

@@ -1,79 +1,65 @@
+export type ProjectCategory = "web" | "mobile" | "systems";
+
 export interface Project {
   id: string;
   title: string;
   description: string;
-  category: "web" | "ml" | "tools";
+  category: ProjectCategory;
   tech: string[];
-  image: string;
   github: string;
-  demo: string;
+  demo?: string;
 }
+
+export const projectCategoryLabels: Record<ProjectCategory, string> = {
+  web: "Web",
+  mobile: "Mobile",
+  systems: "Systems",
+};
 
 export const projects: Project[] = [
   {
-    id: "1",
-    title: "E-Commerce Platform",
+    id: "paperhub",
+    title: "PaperHub — Document-Management Platform",
     description:
-      "A fully responsive e-commerce web application with product filtering, cart management, and checkout flow. Built with vanilla JavaScript and modern CSS.",
+      "Full-stack document-management app with role-based dashboards for users, officers, and admins, plus file-review and payment workflows.",
     category: "web",
-    tech: ["HTML5", "CSS3", "JavaScript"],
-    image: "/images/projects/ecom.jpg",
-    github: "#",
-    demo: "#",
+    tech: ["Node.js", "Express", "Tailwind", "Docker", "MongoDB"],
+    github: "https://github.com/rajesh-1920/paperhub",
   },
   {
-    id: "2",
-    title: "Iris Classification ML Model",
+    id: "edusphere",
+    title: "EduSphere — Learning Management System",
     description:
-      "Machine learning model using scikit-learn for iris flower classification. Implemented with data preprocessing, feature scaling, and model evaluation techniques.",
-    category: "ml",
-    tech: ["Python", "Scikit-learn", "Pandas"],
-    image: "/images/projects/iris.jpg",
-    github: "#",
-    demo: "#",
-  },
-  {
-    id: "3",
-    title: "Weather Dashboard",
-    description:
-      "Interactive weather application fetching real-time data from API. Features include location search, forecast display, and local storage for favorites.",
+      "Full-stack LMS with user authentication, role-based access, and a dynamic admin dashboard. Optimized MySQL queries and a responsive UI for mobile and desktop.",
     category: "web",
-    tech: ["JavaScript", "REST API", "CSS Grid"],
-    image: "/images/projects/weather.jpg",
-    github: "#",
-    demo: "#",
+    tech: ["PHP", "MySQL", "JavaScript", "CSS"],
+    github: "https://github.com/rajesh-1920/edusphere",
   },
   {
-    id: "4",
-    title: "CLI Productivity Tool",
+    id: "contestmate",
+    title: "ContestMate — Contest Reminder App",
     description:
-      "Command-line tool built in Python for task management and productivity tracking. Features data persistence and Markdown-based reporting.",
-    category: "tools",
-    tech: ["Python", "CLI", "File I/O"],
-    image: "/images/projects/cli.jpg",
-    github: "#",
-    demo: "#",
+      "Mobile app that tracks upcoming programming contests and fires local notifications before start times, with a clean, readable UI.",
+    category: "mobile",
+    tech: ["Flutter", "Dart", "Local Notifications"],
+    github: "https://github.com/rajesh-1920/contestmate-a-flutter-base-reminder-app",
   },
   {
-    id: "5",
-    title: "Stock Price Predictor",
+    id: "novaos",
+    title: "NovaOS — Hobby x86-64 Operating System Kernel",
     description:
-      "Time series prediction model using LSTM neural networks. Implemented data normalization, train-test split, and model performance evaluation.",
-    category: "ml",
-    tech: ["Python", "TensorFlow", "LSTM"],
-    image: "/images/projects/stock.jpg",
-    github: "#",
-    demo: "#",
+      "64-bit OS kernel that boots via the Limine bootloader directly into long mode, with serial logging, a framebuffer text console, and an interactive shell.",
+    category: "systems",
+    tech: ["C", "NASM", "Limine", "QEMU", "Make"],
+    github: "https://github.com/rajesh-1920/novaos",
   },
   {
-    id: "6",
-    title: "Task Management App",
+    id: "maze-run",
+    title: "Maze Run — 2D Maze Game",
     description:
-      "Full-featured task management application with add, edit, delete functionality. Implements local storage for data persistence and category filtering.",
-    category: "web",
-    tech: ["JavaScript", "LocalStorage", "CSS Flexbox"],
-    image: "/images/projects/tasks.jpg",
-    github: "#",
-    demo: "#",
+      "2D maze-navigation game with collision detection, pathfinding, multiple difficulty levels, and smooth character control.",
+    category: "systems",
+    tech: ["C++", "Game Logic"],
+    github: "https://github.com/rajesh-1920/Maze-Run-Game",
   },
 ];
