@@ -14,9 +14,11 @@ Personal portfolio site built with **Next.js (App Router)**, **TypeScript**, and
 | Styling   | Tailwind CSS 3 + design tokens in `src/app/globals.css` |
 | Quality   | ESLint 9 (flat config), Prettier, `tsc --noEmit`        |
 | CI        | GitHub Actions (`.github/workflows/ci.yml`)             |
-| Hosting   | Vercel (production) + GitHub Pages (mirror)             |
+| Hosting   | Vercel (production)                                     |
 
 ## Getting started
+
+Requires **Node.js 22+** (see `.nvmrc`).
 
 ```bash
 git clone https://github.com/rajesh-1920/rajesh-1920-dev.git
@@ -91,8 +93,8 @@ Defaults to the GitHub Pages mirror when unset.
 
 ## Deployment
 
-- **Vercel** — push to `main` deploys production. Set `NEXT_PUBLIC_SITE_URL` in the project environment settings.
-- **GitHub Pages mirror** — served from the built output of `main`.
+- **Vercel (production)** — push to `main` deploys. Set `NEXT_PUBLIC_SITE_URL` in the Vercel project environment settings so canonical/Open Graph URLs are correct.
+- **GitHub Pages** — the repo still uses a legacy branch deployment that publishes the repository root, so the Pages URL currently renders this README rather than the app. It needs a static-export workflow (or should be disabled). Vercel is the real deployment.
 - **Custom domain** — Vercel Dashboard → Settings → Domains.
 
 ## Contributing

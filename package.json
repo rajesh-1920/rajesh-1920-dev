@@ -15,7 +15,7 @@
     "check": "npm run format:check && npm run lint && npm run typecheck"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
   "dependencies": {
     "next": "^15.5.28",
