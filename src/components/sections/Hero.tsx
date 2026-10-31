@@ -32,6 +32,14 @@ export default function Hero() {
               <a href="#contact" className="btn btn-outline">
                 Contact Me
               </a>
+              <a
+                href="/rajesh-biswas-cv.pdf"
+                className="btn btn-outline"
+                download="rajesh-biswas-cv.pdf"
+                aria-label="Download Rajesh Biswas CV PDF"
+              >
+                Download CV
+              </a>
             </div>
             <dl className="mt-8 grid grid-cols-3 gap-4">
               {stats.map((stat) => (

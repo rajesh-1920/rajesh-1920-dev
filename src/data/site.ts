@@ -19,6 +19,8 @@ export interface SiteConfig {
   email: string;
   phone: string;
   location: string;
+  /** Open Graph / Twitter card image (defaults to profile picture). */
+  ogImage: string;
   social: SocialLink[];
 }
 
@@ -42,6 +44,7 @@ export const site: SiteConfig = {
   email: "rajesh18@cse.pstu.ac.bd",
   phone: "+8801400234847",
   location: "Khulna, Bangladesh",
+  ogImage: `${process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ?? "https://rajesh-1920.github.io/rajesh-1920-dev"}/images/profile-picture.jpg`,
   social: [
     { label: "GitHub", href: "https://github.com/rajesh-1920" },
     { label: "LinkedIn", href: "https://www.linkedin.com/in/rajesh-biswas-8b9780312" },

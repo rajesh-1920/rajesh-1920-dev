@@ -19,6 +19,7 @@ export default function Cv() {
     summary,
     competitiveProgramming,
     education,
+    professionalExperience,
     leadership,
     certifications,
   } = cv;
@@ -54,9 +55,57 @@ export default function Cv() {
           ))}
         </div>
 
+        <div className="mt-6 flex justify-center">
+          <a
+            href="/rajesh-biswas-cv.pdf"
+            className="btn btn-primary px-8 py-3"
+            download="rajesh-biswas-cv.pdf"
+            aria-label="Download Rajesh Biswas CV PDF"
+          >
+            Download CV (PDF)
+          </a>
+        </div>
+
         <div className="mt-8">
           <h3 className="mb-6 text-center text-2xl font-bold">Professional Summary</h3>
           <p className="mx-auto max-w-2xl text-center text-ink-secondary">{summary}</p>
+        </div>
+
+        <div className="mt-10">
+          <h3 className="mb-6 text-center text-2xl font-bold">Professional Experience</h3>
+          <div className="grid grid-cols-1 gap-6">
+            {professionalExperience.map((exp) => (
+              <article
+                key={`${exp.role}-${exp.company}`}
+                className="rounded-lg bg-bg-secondary p-6 border border-white/5"
+              >
+                <div className="mb-2">
+                  <h4 className="text-xl font-bold text-ink-primary">{exp.role}</h4>
+                  <p className="text-sm text-accent-secondary font-medium">
+                    {exp.company}
+                  </p>
+                  <p className="text-xs text-ink-tertiary">{exp.period}</p>
+                </div>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {exp.tech.map((tech) => (
+                    <span
+                      key={tech}
+                      className="rounded-md bg-bg-tertiary px-2 py-1 text-xs text-ink-tertiary"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+                <ul className="space-y-2 text-sm text-ink-secondary">
+                  {exp.description.map((item) => (
+                    <li key={item} className="list-disc pl-4">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
         </div>
 
         <div className="mt-10">

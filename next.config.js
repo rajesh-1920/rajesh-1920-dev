@@ -25,6 +25,16 @@ const nextConfig = {
     minimumCacheTTL: 60 * 60 * 24 * 30,
     // The Pages target is a static export: no image optimisation server.
     unoptimized: isPagesBuild,
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
+      {
+        protocol: "https",
+        hostname: "ui-avatars.com",
+      },
+    ],
     contentSecurityPolicy:
       "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; img-src 'data:' 'self';",
   },

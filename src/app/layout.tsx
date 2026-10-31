@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 
 import { basePath, site } from "@/data/site";
+import { JSONLD } from "@/components/layout/SEO";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -27,11 +28,20 @@ export const metadata: Metadata = {
     siteName: site.name,
     title: site.title,
     description: site.description,
+    images: [
+      {
+        url: `${site.url}/images/profile-picture.jpg`,
+        width: 800,
+        height: 800,
+        alt: site.name,
+      },
+    ],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: site.title,
     description: site.description,
+    images: [`${site.url}/images/profile-picture.jpg`],
   },
   robots: { index: true, follow: true },
 };
@@ -55,6 +65,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Navbar />
           <main id="main-content">{children}</main>
           <Footer />
+          <JSONLD />
         </ThemeProvider>
       </body>
     </html>

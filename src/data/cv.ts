@@ -1,3 +1,11 @@
+export interface ProfessionalExperience {
+  role: string;
+  company: string;
+  period: string;
+  tech: string[];
+  description: string[];
+}
+
 export interface CvProfile {
   name: string;
   tagline: string;
@@ -25,6 +33,7 @@ export interface CvProfile {
     cgpa: string;
     expectedGraduation: string;
   };
+  professionalExperience: ProfessionalExperience[];
   leadership: {
     role: string;
     organization: string;
@@ -36,7 +45,7 @@ export interface CvProfile {
 
 export const cv: CvProfile = {
   name: "Rajesh Biswas",
-  tagline: "CSE Undergraduate • Competitive Programmer • Full-Stack Developer",
+  tagline: "CSE Undergraduate • Competitive Programmer • Full-Stack & Systems Developer",
   location: "Khulna, Bangladesh",
   phone: "+880 1400 234847",
   email: "rajesh18@cse.pstu.ac.bd",
@@ -45,7 +54,7 @@ export const cv: CvProfile = {
   codeforces: "codeforces.com/profile/rajesh_1920",
   leetcode: "leetcode.com/u/rajesh_1920",
   summary:
-    "Computer Science & Engineering undergraduate and competitive programmer with 2,000+ problems solved across Codeforces (Specialist, max 1416), CodeChef (3★), and LeetCode, and a two-time ICPC Regionalist. Comfortable from low-level systems to the web — from a hobby x86-64 OS kernel written in C to full-stack applications with Node.js, Next.js, and PHP, containerized with Docker and shipped through GitHub Actions CI. Strong foundation in data structures, algorithms, and systems programming. Seeking a Software Engineering internship or entry-level role.",
+    "Competitive programmer and CSE undergraduate with 2,000+ algorithmic problems solved across Codeforces (Specialist, peak 1416), LeetCode (330+ solved, 56 Hard), and CodeChef (3★, peak 1615) — all under handle rajesh_1920. Two-time ICPC Regionalist and competitor in 15+ national IUPCs. Ships production-scale software on 2 paid team projects (540+ commits) and a bootable x86-64 OS kernel in C. Strong foundation in Data Structures, Algorithms, and Systems Engineering. Seeking a Software Engineering or Algorithmic Problem Solving role.",
 
   competitiveProgramming: {
     codeforces:
@@ -69,6 +78,40 @@ export const cv: CvProfile = {
     cgpa: "3.41 / 4.00",
     expectedGraduation: "2027",
   },
+
+  professionalExperience: [
+    {
+      role: "Software Developer — Web & Mobile",
+      company: "Srijanee Bidyaniketan School Management System",
+      period: "Aug 2026 – Present",
+      tech: ["Next.js 16", "React 19", "Flutter", "Dart", "Firebase", "Turborepo"],
+      description: [
+        "Top contributor on a 10-person team with 540+ commits across core web and mobile repositories.",
+        "Engineered the production Flutter mobile app end-to-end (35+ screens, 43 routes) and large portions of the 44-route web administration console.",
+        "Architected database-driven RBAC layer: 24 modules × 4 actions, enforced across 95 server guards and 38 Firestore rule blocks.",
+        "Built an idempotent payments engine settling across 3 paths (browser return, signed IPN, reconciler) on SSLCommerz.",
+        "Implemented low-level network communication for the ZKTeco biometric attendance protocol and BDRIS registration relay.",
+      ],
+    },
+    {
+      role: "Frontend & Extension Lead",
+      company: "ihateresume",
+      period: "Jun 2026 – Sep 2026",
+      tech: [
+        "Next.js 15",
+        "React 19",
+        "TypeScript 5",
+        "Chrome MV3",
+        "FastAPI",
+        "PostgreSQL",
+      ],
+      description: [
+        "Directed frontend engineering on a team of 6, delivering the Next.js 15 / React 19 web platform (19 routes, 165 components) and Chrome MV3 extension.",
+        "Engineered extension web scraper parsing schema.org JobPosting across 9 job boards plus a custom Workday adapter.",
+        "Built 1-click application autofill compatible with dynamic React and Vue forms; secured client against XSS using DOMPurify and shadow-root isolation.",
+      ],
+    },
+  ],
 
   leadership: [
     {

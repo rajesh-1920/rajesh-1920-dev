@@ -13,8 +13,9 @@ type Status = keyof typeof statusStyles;
 
 export default function Contact() {
   const [status, setStatus] = useState<{ type: Status; text: string } | null>(null);
+  const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const data = new FormData(e.currentTarget);
@@ -28,17 +29,47 @@ export default function Contact() {
       return;
     }
 
-    const body = `${message}\n\n— ${name}\nReply to: ${email}`;
-    const href = `mailto:${site.email}?subject=${encodeURIComponent(
-      subject,
-    )}&body=${encodeURIComponent(body)}`;
+    if (message.length < 10) {
+      setStatus({
+        type: "error",
+        text: "Please write a longer message (at least 10 characters).",
+      });
+      return;
+    }
 
-    window.location.href = href;
-    setStatus({
-      type: "success",
-      text: `Your email app should open with the message ready to send. If it doesn't, write to ${site.email} directly.`,
-    });
-    e.currentTarget.reset();
+    setSubmitting(true);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, subject, message }),
+      });
+
+      const json = await res.json();
+
+      if (!res.ok) {
+        setStatus({ type: "error", text: json.error ?? "Failed to send message." });
+        return;
+      }
+
+      if (json.mailto) {
+        window.location.href = json.mailto;
+      }
+
+      setStatus({
+        type: "success",
+        text: `Message sent! I'll get back to you at ${email}. If your email app doesn't open, write to ${site.email} directly.`,
+      });
+      e.currentTarget.reset();
+    } catch {
+      setStatus({
+        type: "error",
+        text: "Network error. Please try again or email me directly.",
+      });
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const cards = [
@@ -117,8 +148,12 @@ export default function Contact() {
               />
             </div>
 
-            <button type="submit" className="btn btn-primary mt-4 w-full">
-              Send Message
+            <button
+              type="submit"
+              className="btn btn-primary mt-4 w-full"
+              disabled={submitting}
+            >
+              {submitting ? "Sending…" : "Send Message"}
             </button>
           </form>
 
