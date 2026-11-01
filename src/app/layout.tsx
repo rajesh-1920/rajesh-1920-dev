@@ -47,23 +47,30 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0f172a",
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#0b0f19" },
+    { media: "(prefers-color-scheme: light)", color: "#f8fafc" },
+  ],
   colorScheme: "dark light",
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
-      <body>
+      <body className="flex min-h-screen flex-col bg-bg-primary text-ink-primary font-sans antialiased selection:bg-accent-primary/20 selection:text-ink-primary">
         <ThemeProvider>
           <a
             href="#main-content"
-            className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-white focus:px-4 focus:py-2 focus:text-black"
+            className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-xl focus:border focus:border-accent-primary focus:bg-bg-primary focus:px-4 focus:py-2.5 focus:text-sm focus:font-bold focus:text-accent-primary focus:shadow-xl"
           >
             Skip to main content
           </a>
           <Navbar />
-          <main id="main-content">{children}</main>
+          <main id="main-content" className="flex-1">
+            {children}
+          </main>
           <Footer />
           <JSONLD />
         </ThemeProvider>

@@ -1,15 +1,24 @@
-import { cv } from "@/data/cv";
-import { skillCategories } from "@/data/skills";
-import { projects } from "@/data/projects";
+"use client";
 
-const profileLinks = [
-  { label: "GitHub", href: `https://${cv.github}` },
-  { label: "LinkedIn", href: `https://${cv.linkedin}` },
-  { label: "Codeforces", href: `https://${cv.codeforces}` },
-  { label: "LeetCode", href: `https://${cv.leetcode}` },
-];
+import { useState } from "react";
+
+import { cv } from "@/data/cv";
+import {
+  AwardIcon,
+  CodeforcesIcon,
+  DownloadIcon,
+  GithubIcon,
+  GraduationCapIcon,
+  LeetCodeIcon,
+  LinkedinIcon,
+  SparklesIcon,
+} from "@/components/ui/Icons";
+
+type Tab = "overview" | "education" | "certifications" | "honors";
 
 export default function Cv() {
+  const [activeTab, setActiveTab] = useState<Tab>("overview");
+
   const {
     name,
     tagline,
@@ -17,240 +26,258 @@ export default function Cv() {
     phone,
     email,
     summary,
-    competitiveProgramming,
     education,
-    professionalExperience,
-    leadership,
+    competitiveProgramming,
     certifications,
   } = cv;
 
   return (
-    <section id="cv" className="section-padding section-band">
+    <section id="cv" className="section-padding">
       <div className="container-x">
-        <p className="section-eyebrow text-center">Curriculum Vitae</p>
-        <h2 className="section-title text-center font-extrabold">{name}</h2>
-        <p className="mt-4 text-center text-ink-secondary">{tagline}</p>
-
-        <div className="mt-6 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-ink-secondary">
-          <span>{location}</span>
-          <a href={`tel:${phone.replace(/\s/g, "")}`} className="hover:text-ink-primary">
-            {phone}
-          </a>
-          <a href={`mailto:${email}`} className="hover:text-ink-primary">
-            {email}
-          </a>
+        <div className="text-center">
+          <p className="section-eyebrow">
+            <SparklesIcon className="h-3.5 w-3.5" />
+            <span>Interactive Resume</span>
+          </p>
+          <h2 className="section-title mt-2">Curriculum Vitae</h2>
+          <p className="section-subtitle">
+            A structured breakdown of academic background, competitive honors, and
+            specialized certifications.
+          </p>
         </div>
 
-        <div className="mt-4 flex flex-wrap justify-center gap-4 text-sm">
-          {profileLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-link"
+        {/* Download Hero Banner */}
+        <div className="mt-12 max-w-4xl mx-auto rounded-3xl border border-border-strong bg-gradient-to-r from-bg-secondary via-bg-tertiary to-bg-secondary p-6 sm:p-8 shadow-xl">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <div className="space-y-2">
+              <span className="inline-block rounded-full border border-accent-primary/30 bg-accent-primary/10 px-3 py-1 text-xs font-semibold text-accent-primary">
+                ATS-Optimized &amp; Verified
+              </span>
+              <h3 className="font-display text-2xl font-bold text-ink-primary">{name}</h3>
+              <p className="text-sm text-ink-secondary">{tagline}</p>
+              <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-ink-tertiary pt-1">
+                <span>📍 {location}</span>
+                <a href={`mailto:${email}`} className="hover:text-accent-primary">
+                  ✉️ {email}
+                </a>
+                <a
+                  href={`tel:${phone.replace(/\s/g, "")}`}
+                  className="hover:text-accent-primary"
+                >
+                  📞 {phone}
+                </a>
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row md:flex-col gap-2 shrink-0">
+              <a
+                href="/rajesh-biswas-cv.pdf"
+                download="rajesh-biswas-cv.pdf"
+                className="btn btn-primary justify-center shadow-lg"
+                aria-label="Download Rajesh Biswas CV PDF"
+              >
+                <DownloadIcon className="h-4 w-4" />
+                <span>Download CV (PDF)</span>
+              </a>
+
+              <div className="flex items-center justify-center gap-2 pt-1">
+                <a
+                  href={`https://${cv.github}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-lg border border-border-subtle bg-bg-secondary p-2 text-ink-secondary hover:text-ink-primary hover:border-accent-primary/40"
+                  aria-label="GitHub"
+                >
+                  <GithubIcon className="h-4 w-4" />
+                </a>
+                <a
+                  href={`https://${cv.linkedin}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-lg border border-border-subtle bg-bg-secondary p-2 text-ink-secondary hover:text-ink-primary hover:border-accent-primary/40"
+                  aria-label="LinkedIn"
+                >
+                  <LinkedinIcon className="h-4 w-4" />
+                </a>
+                <a
+                  href={`https://${cv.codeforces}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-lg border border-border-subtle bg-bg-secondary p-2 text-ink-secondary hover:text-ink-primary hover:border-accent-primary/40"
+                  aria-label="Codeforces"
+                >
+                  <CodeforcesIcon className="h-4 w-4 text-accent-secondary" />
+                </a>
+                <a
+                  href={`https://${cv.leetcode}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-lg border border-border-subtle bg-bg-secondary p-2 text-ink-secondary hover:text-ink-primary hover:border-accent-primary/40"
+                  aria-label="LeetCode"
+                >
+                  <LeetCodeIcon className="h-4 w-4 text-accent-amber" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Tab Navigation */}
+        <div className="mt-10 flex flex-wrap justify-center gap-2 max-w-4xl mx-auto">
+          {[
+            { id: "overview", label: "Executive Summary" },
+            { id: "education", label: "Education & Academics" },
+            { id: "honors", label: "Awards & CP Honors" },
+            { id: "certifications", label: "Certifications & Camps" },
+          ].map((tab) => (
+            <button
+              key={tab.id}
+              type="button"
+              className="filter-btn text-xs font-semibold"
+              aria-pressed={activeTab === tab.id}
+              onClick={() => setActiveTab(tab.id as Tab)}
             >
-              {link.label}
-            </a>
+              {tab.label}
+            </button>
           ))}
         </div>
 
-        <div className="mt-6 flex justify-center">
-          <a
-            href="/rajesh-biswas-cv.pdf"
-            className="btn btn-primary px-8 py-3"
-            download="rajesh-biswas-cv.pdf"
-            aria-label="Download Rajesh Biswas CV PDF"
-          >
-            Download CV (PDF)
-          </a>
-        </div>
-
-        <div className="mt-8">
-          <h3 className="mb-6 text-center text-2xl font-bold">Professional Summary</h3>
-          <p className="mx-auto max-w-2xl text-center text-ink-secondary">{summary}</p>
-        </div>
-
-        <div className="mt-10">
-          <h3 className="mb-6 text-center text-2xl font-bold">Professional Experience</h3>
-          <div className="grid grid-cols-1 gap-6">
-            {professionalExperience.map((exp) => (
-              <article
-                key={`${exp.role}-${exp.company}`}
-                className="rounded-lg bg-bg-secondary p-6 border border-white/5"
-              >
-                <div className="mb-2">
-                  <h4 className="text-xl font-bold text-ink-primary">{exp.role}</h4>
-                  <p className="text-sm text-accent-secondary font-medium">
-                    {exp.company}
+        {/* Tab Content Display */}
+        <div className="mt-8 max-w-4xl mx-auto">
+          {activeTab === "overview" && (
+            <div className="card-glass p-6 sm:p-8 space-y-4">
+              <h3 className="font-display text-lg font-bold text-ink-primary flex items-center gap-2">
+                <SparklesIcon className="h-4 w-4 text-accent-primary" />
+                <span>Professional Summary</span>
+              </h3>
+              <p className="text-sm sm:text-base text-ink-secondary leading-relaxed">
+                {summary}
+              </p>
+              <div className="pt-4 border-t border-border-subtle grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+                <div className="rounded-xl bg-bg-tertiary p-3">
+                  <p className="text-xs text-ink-tertiary font-semibold uppercase">
+                    Solved Problems
                   </p>
-                  <p className="text-xs text-ink-tertiary">{exp.period}</p>
+                  <p className="text-xl font-extrabold text-accent-primary mt-1">
+                    {competitiveProgramming.totalProblems}+
+                  </p>
                 </div>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {exp.tech.map((tech) => (
+                <div className="rounded-xl bg-bg-tertiary p-3">
+                  <p className="text-xs text-ink-tertiary font-semibold uppercase">
+                    Onsite Contests
+                  </p>
+                  <p className="text-xl font-extrabold text-accent-secondary mt-1">
+                    {competitiveProgramming.onsiteContests}+
+                  </p>
+                </div>
+                <div className="rounded-xl bg-bg-tertiary p-3">
+                  <p className="text-xs text-ink-tertiary font-semibold uppercase">
+                    Current Semester
+                  </p>
+                  <p className="text-xl font-extrabold text-accent-tertiary mt-1">
+                    {education.semester}
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {activeTab === "education" && (
+            <div className="card-glass p-6 sm:p-8 space-y-4">
+              <div className="flex items-start justify-between gap-4">
+                <div className="flex items-start gap-3">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent-primary/10 text-accent-primary mt-1">
+                    <GraduationCapIcon className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 className="font-display text-lg font-bold text-ink-primary">
+                      {education.degree}
+                    </h3>
+                    <p className="text-sm font-semibold text-accent-secondary">
+                      {education.university}
+                    </p>
+                    <p className="text-xs text-ink-tertiary mt-1">
+                      {education.semester} • Cumulative GPA:{" "}
+                      <strong className="text-ink-primary">{education.cgpa}</strong>
+                    </p>
+                  </div>
+                </div>
+
+                <span className="rounded-full border border-border-strong bg-bg-tertiary px-3 py-1 text-xs font-mono font-medium text-ink-tertiary">
+                  Expected {education.expectedGraduation}
+                </span>
+              </div>
+
+              <div className="pt-4 border-t border-border-subtle">
+                <p className="text-xs uppercase font-semibold text-ink-tertiary tracking-wider mb-2">
+                  Key Undergraduate Coursework:
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {[
+                    "Data Structures & Algorithms",
+                    "Design & Analysis of Algorithms",
+                    "Operating Systems",
+                    "Database Management Systems",
+                    "Object-Oriented Programming (C++/Java)",
+                    "Computer Architecture",
+                    "Compiler Design",
+                    "Software Engineering",
+                  ].map((course) => (
                     <span
-                      key={tech}
-                      className="rounded-md bg-bg-tertiary px-2 py-1 text-xs text-ink-tertiary"
+                      key={course}
+                      className="rounded-md border border-border-subtle bg-bg-tertiary px-2.5 py-1 text-xs text-ink-secondary"
                     >
-                      {tech}
+                      {course}
                     </span>
                   ))}
                 </div>
-                <ul className="space-y-2 text-sm text-ink-secondary">
-                  {exp.description.map((item) => (
-                    <li key={item} className="list-disc pl-4">
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </article>
-            ))}
-          </div>
-        </div>
-
-        <div className="mt-10">
-          <h3 className="mb-6 text-center text-2xl font-bold">Technical Skills</h3>
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {skillCategories.map((category) => (
-              <div key={category.title} className="rounded-lg bg-bg-secondary p-4">
-                <h4 className="mb-2 font-semibold">{category.title}</h4>
-                <ul className="space-y-2 text-ink-secondary">
-                  {category.skills.map((skill) => (
-                    <li key={skill}>{skill}</li>
-                  ))}
-                </ul>
               </div>
-            ))}
-          </div>
-        </div>
+            </div>
+          )}
 
-        <div className="mt-10">
-          <h3 className="mb-6 text-center text-2xl font-bold">
-            Competitive Programming &amp; Achievements
-          </h3>
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            <div className="rounded-lg bg-bg-secondary p-4">
-              <h4 className="mb-1 font-semibold">Codeforces</h4>
-              <p className="text-ink-secondary">{competitiveProgramming.codeforces}</p>
-            </div>
-            <div className="rounded-lg bg-bg-secondary p-4">
-              <h4 className="mb-1 font-semibold">CodeChef</h4>
-              <p className="text-ink-secondary">{competitiveProgramming.codechef}</p>
-            </div>
-            <div className="rounded-lg bg-bg-secondary p-4">
-              <h4 className="mb-1 font-semibold">LeetCode</h4>
-              <p className="text-ink-secondary">{competitiveProgramming.leetcode}</p>
-            </div>
-          </div>
-          <ul className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {competitiveProgramming.awards.map((award) => (
-              <li
-                key={award}
-                className="rounded-lg border border-white/10 p-4 text-sm text-ink-secondary"
-              >
-                {award}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="mt-10">
-          <h3 className="mb-6 text-center text-2xl font-bold">Selected Projects</h3>
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {projects.map((project) => (
-              <div
-                key={project.id}
-                className="flex flex-col rounded-lg bg-bg-secondary p-6 transition hover:bg-bg-tertiary"
-              >
-                <h4 className="mb-2 font-semibold">{project.title}</h4>
-                <p className="mb-4 flex-1 text-ink-secondary">{project.description}</p>
-                <ul className="flex flex-wrap gap-1.5">
-                  {project.tech.map((tech) => (
-                    <li
-                      key={tech}
-                      className="rounded-md bg-bg-tertiary px-2 py-1 text-xs text-ink-tertiary"
-                    >
-                      {tech}
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-4 flex items-center gap-4">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-link"
-                    aria-label={`View ${project.title} on GitHub`}
+          {activeTab === "honors" && (
+            <div className="card-glass p-6 sm:p-8 space-y-4">
+              <h3 className="font-display text-lg font-bold text-ink-primary flex items-center gap-2">
+                <AwardIcon className="h-5 w-5 text-accent-amber" />
+                <span>Competitive Programming Honors</span>
+              </h3>
+              <ul className="space-y-3">
+                {competitiveProgramming.awards.map((award, idx) => (
+                  <li
+                    key={idx}
+                    className="flex items-start gap-3 rounded-xl border border-border-subtle bg-bg-tertiary/50 p-4"
                   >
-                    GitHub
-                  </a>
-                  {project.demo && (
-                    <a
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn-link"
-                      aria-label={`Live demo for ${project.title}`}
-                    >
-                      Live Demo
-                    </a>
-                  )}
-                </div>
+                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent-amber/20 text-accent-amber text-xs font-bold">
+                      ★
+                    </span>
+                    <span className="text-sm font-medium text-ink-primary">{award}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {activeTab === "certifications" && (
+            <div className="card-glass p-6 sm:p-8 space-y-4">
+              <h3 className="font-display text-lg font-bold text-ink-primary flex items-center gap-2">
+                <AwardIcon className="h-5 w-5 text-accent-primary" />
+                <span>Specialized Camps &amp; Certifications</span>
+              </h3>
+              <div className="space-y-3">
+                {certifications.map((cert, idx) => (
+                  <div
+                    key={idx}
+                    className="flex items-center gap-3 rounded-xl border border-border-subtle bg-bg-tertiary/50 p-4"
+                  >
+                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-accent-primary/10 text-accent-primary">
+                      ✓
+                    </div>
+                    <p className="text-sm font-semibold text-ink-primary">{cert}</p>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <div className="rounded-lg bg-bg-secondary p-6">
-            <h3 className="mb-2 text-xl font-bold">Education</h3>
-            <p className="font-semibold">{education.degree}</p>
-            <p className="text-ink-secondary">
-              {education.university} — {education.semester}
-            </p>
-            <p className="text-ink-secondary">
-              CGPA: {education.cgpa} · Expected Graduation: {education.expectedGraduation}
-            </p>
-          </div>
-          <div className="rounded-lg bg-bg-secondary p-6">
-            <h3 className="mb-2 text-xl font-bold">Leadership</h3>
-            <p className="font-semibold">{leadership[0].role}</p>
-            <p className="text-ink-secondary">
-              {leadership[0].organization} · {leadership[0].period}
-            </p>
-          </div>
-        </div>
-
-        <div className="mt-8">
-          <h3 className="mb-4 text-center text-2xl font-bold">
-            Leadership &amp; Activities
-          </h3>
-          <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-            {leadership.map((item) => (
-              <li key={`${item.role}-${item.period}`} className="rounded-lg p-4">
-                <p className="font-medium">
-                  {item.role} — {item.organization} · {item.period}
-                </p>
-                <p className="mt-1 text-sm text-ink-secondary">{item.description}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="mt-8">
-          <h3 className="mb-4 text-center text-2xl font-bold">
-            Certifications &amp; Training
-          </h3>
-          <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {certifications.map((certificate) => (
-              <li
-                key={certificate}
-                className="rounded-lg bg-bg-secondary p-4 text-ink-secondary"
-              >
-                {certificate}
-              </li>
-            ))}
-          </ul>
+            </div>
+          )}
         </div>
       </div>
     </section>

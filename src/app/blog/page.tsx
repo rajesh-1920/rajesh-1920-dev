@@ -1,71 +1,48 @@
-import Image from "next/image";
+import Link from "next/link";
 
 import { blogPosts } from "@/data/blog";
 import { SEO } from "@/components/layout/SEO";
+import { BlogList } from "@/components/blog/BlogList";
+import { SparklesIcon } from "@/components/ui/Icons";
 
 export const metadata = SEO({
-  title: "Blog",
+  title: "Blog & Technical Notes",
   description:
-    "Thoughts on competitive programming, systems programming, and full-stack web development.",
+    "Engineering notes, contest reflections, and system architecture breakdowns by Rajesh Biswas.",
 });
 
 export default function BlogPage() {
   return (
-    <section className="section-padding">
+    <section className="section-padding ambient-glow min-h-screen">
       <div className="container-x">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-ink-secondary hover:text-accent-primary transition-colors"
+          >
+            &larr; Back to Portfolio
+          </Link>
+
+          <span className="text-xs text-ink-tertiary">
+            Showing {blogPosts.length} published articles
+          </span>
+        </div>
+
         <div className="text-center mb-16">
-          <p className="section-eyebrow text-center">Thoughts</p>
-          <h1 className="section-title text-center text-5xl font-extrabold md:text-6xl">
-            Blog
+          <p className="section-eyebrow">
+            <SparklesIcon className="h-3.5 w-3.5" />
+            <span>Technical Insights</span>
+          </p>
+          <h1 className="section-title mt-2 text-4xl sm:text-5xl lg:text-6xl">
+            Blog &amp; Field Notes
           </h1>
-          <p className="mt-4 text-center text-ink-secondary max-w-2xl mx-auto">
-            Notes on competitive programming, systems programming, and building full-stack
-            web applications.
+          <p className="section-subtitle">
+            Reflections on competitive programming, low-level kernel development, and
+            scalable web platforms.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {blogPosts.map((post) => (
-            <article
-              key={post.slug}
-              className="flex flex-col rounded-lg bg-bg-secondary p-6 border border-white/5 hover:border-accent-primary/30 transition"
-            >
-              {post.cover && (
-                <div className="mb-4 rounded-lg overflow-hidden aspect-[16/9] bg-bg-tertiary">
-                  <Image
-                    src={post.cover}
-                    alt={post.title}
-                    fill
-                    className="object-cover"
-                    sizes="(min-width: 1024px) 33vw, 100vw"
-                    loading="lazy"
-                  />
-                </div>
-              )}
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-xs font-semibold text-accent-secondary uppercase tracking-wider">
-                  {post.category}
-                </span>
-                <span className="text-xs text-ink-tertiary">{post.readTime}</span>
-              </div>
-              <h2 className="mb-3 text-xl font-display font-bold text-ink-primary">
-                {post.title}
-              </h2>
-              <p className="mb-6 flex-1 text-sm text-ink-secondary line-clamp-4">
-                {post.excerpt}
-              </p>
-              <div className="mt-auto">
-                <time dateTime={post.date} className="text-xs text-ink-tertiary">
-                  {new Date(post.date).toLocaleDateString("en-US", {
-                    month: "long",
-                    day: "numeric",
-                    year: "numeric",
-                  })}
-                </time>
-              </div>
-            </article>
-          ))}
-        </div>
+        <BlogList posts={blogPosts} />
       </div>
     </section>
   );
