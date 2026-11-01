@@ -9,13 +9,13 @@ export function ThemeToggle() {
     <button
       type="button"
       onClick={toggle}
-      className="rounded-lg border border-white/10 px-3 py-2 text-sm"
+      className="flex h-10 w-10 items-center justify-center rounded-xl border border-border-subtle bg-bg-secondary/80 text-ink-secondary hover:text-ink-primary hover:border-accent-primary/40 focus:outline-none focus:ring-2 focus:ring-accent-primary/30 transition-all"
       aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-      aria-pressed={theme === "light"}
+      title={theme === "dark" ? "Switch to light theme" : "Switch to dark theme"}
     >
       {theme === "dark" ? (
         <svg
-          className="h-5 w-5"
+          className="h-4 w-4 text-accent-amber transition-transform duration-300 rotate-0 hover:rotate-45"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -29,7 +29,7 @@ export function ThemeToggle() {
         </svg>
       ) : (
         <svg
-          className="h-5 w-5"
+          className="h-4 w-4 text-sky-500 transition-transform duration-300 hover:-rotate-12"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"

@@ -1,9 +1,9 @@
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
+import Experience from "@/components/sections/Experience";
+import CpStats from "@/components/sections/CpStats";
 import Skills from "@/components/sections/Skills";
 import Projects from "@/components/sections/Projects";
-import CpStats from "@/components/sections/CpStats";
-import Testimonials from "@/components/sections/Testimonials";
 import Cv from "@/components/sections/Cv";
 import Contact from "@/components/sections/Contact";
 import { ProgressBar } from "@/components/ui/ProgressBar";
@@ -15,10 +15,10 @@ export default function Page() {
       <ProgressBar />
       <Hero />
       <About />
+      <Experience />
+      <CpStats />
       <Skills />
       <Projects />
-      <CpStats />
-      <Testimonials />
       <Cv />
       <Contact />
       <BackToTop />

@@ -16,6 +16,8 @@ export interface CvProfile {
   linkedin: string;
   codeforces: string;
   leetcode: string;
+  codechef: string;
+  website: string;
   summary: string;
   competitiveProgramming: {
     codeforces: string;
@@ -53,21 +55,28 @@ export const cv: CvProfile = {
   linkedin: "linkedin.com/in/rajesh-biswas-8b9780312",
   codeforces: "codeforces.com/profile/rajesh_1920",
   leetcode: "leetcode.com/u/rajesh_1920",
+  codechef: "codechef.com/users/rajesh_1920",
+  website: "rajesh-1920-dev.vercel.app",
   summary:
     "Competitive programmer and CSE undergraduate with 2,000+ algorithmic problems solved across Codeforces (Specialist, peak 1416), LeetCode (330+ solved, 56 Hard), and CodeChef (3★, peak 1615) — all under handle rajesh_1920. Two-time ICPC Regionalist and competitor in 15+ national IUPCs. Ships production-scale software on 2 paid team projects (540+ commits) and a bootable x86-64 OS kernel in C. Strong foundation in Data Structures, Algorithms, and Systems Engineering. Seeking a Software Engineering or Algorithmic Problem Solving role.",
 
   competitiveProgramming: {
     codeforces:
-      "Specialist (max 1416): 1,500+ problems solved across 100+ rated contests (rajesh_1920)",
-    codechef: "3★, peak rating 1615 (rajesh_1920)",
-    leetcode: "330+ problems solved, including 56 Hard (rajesh_1920)",
+      "Specialist (peak 1416): 1,500+ problems solved across 100+ rated contests (handle: rajesh_1920)",
+    codechef:
+      "3★ (peak rating 1615): 280+ problems in rated division contests (handle: rajesh_1920)",
+    leetcode:
+      "330+ problems solved, including 56 Hard algorithmic challenges (handle: rajesh_1920)",
     icpcRegionalist: true,
     onsiteContests: 15,
     totalProblems: 2000,
     awards: [
-      "ICPC Regionalist — Asia West / Dhaka Regional (2024, 2025)",
-      "1st Runner-up — Intra-University Programming Contest, PSTU CSE Club (2025)",
-      "Consistent top performer at PSTU IT Carnival and Intra-University Programming Contests (2024–2026)",
+      "ACM ICPC Regionalist — Two-time participant, ACM-ICPC Asia West / Dhaka Regional Onsite Contest (2024, 2025)",
+      "Inter-University Programming Contests (IUPCs) — Competed onsite in 15+ national IUPCs representing PSTU at BUET, KUET, CUET, and other venues",
+      "1st Runner-up — Intra-University Programming Contest, CSE Club, PSTU (2025)",
+      "Rising Junior Programmer, PSTU IT Carnival (2023), and consistent top performer (2024–2026)",
+      "BAPS National Programming Camp — Selected for and completed intensive intermediate algorithmic problem-solving camp at BUBT (2025)",
+      "2,000+ Total Problems Solved across Codeforces, LeetCode, CodeChef, AtCoder, CSES, LightOJ, and VJudge",
     ],
   },
 
@@ -86,7 +95,7 @@ export const cv: CvProfile = {
       period: "Aug 2026 – Present",
       tech: ["Next.js 16", "React 19", "Flutter", "Dart", "Firebase", "Turborepo"],
       description: [
-        "Top contributor on a 10-person team with 540+ commits across core web and mobile repositories.",
+        "Top contributor on a 10-person team with 540+ commits across the core web and mobile repositories.",
         "Engineered the production Flutter mobile app end-to-end (35+ screens, 43 routes) and large portions of the 44-route web administration console.",
         "Architected database-driven RBAC layer: 24 modules × 4 actions, enforced across 95 server guards and 38 Firestore rule blocks.",
         "Built an idempotent payments engine settling across 3 paths (browser return, signed IPN, reconciler) on SSLCommerz.",
@@ -116,23 +125,23 @@ export const cv: CvProfile = {
   leadership: [
     {
       role: "Assistant General Secretary (AGS)",
-      organization: "PSTU CSE Club",
+      organization: "CSE Club, PSTU",
       period: "Feb 2026 – Present",
       description:
-        "Coordinate and organize inter- and intra-university programming contests and technical events; help lead the club's competitive-programming community.",
+        "Lead organization of inter- and intra-university programming contests, problem setting, and platform logistics; mentored 100+ junior students in Data Structures, Algorithms, and C++.",
     },
     {
       role: "Member",
-      organization: "PSTU CSE Club",
+      organization: "CSE Club, PSTU",
       period: "2022 – 2026",
       description:
-        "Participated in club workshops, seminars, and programming contests; volunteered at departmental tech events and mentored junior students in problem-solving.",
+        "Conducted algorithmic workshops, problem-solving bootcamps, and represented PSTU at national collegiate contests.",
     },
   ],
 
   certifications: [
-    "Cython – Programming, DSA with C++ and Python – bongoDev, 2024",
-    "BAPS National Programming Camp (Intermediate) – BUBT, 2025",
-    "Flutter App Development Training – EDGE Program, PSTU, 2024",
+    "Cython – Programming, DSA with C++ and Python — bongoDev (2024)",
+    "BAPS National Programming Camp (Intermediate Track) — BUBT (2025)",
+    "Flutter App Development Training — EDGE Program, PSTU (2024)",
   ],
 };

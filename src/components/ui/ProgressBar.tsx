@@ -19,7 +19,7 @@ export function ProgressBar() {
 
   return (
     <div
-      className="fixed top-0 left-0 h-1 bg-accent-primary z-50 transition-colors"
+      className="fixed top-0 left-0 h-[3px] bg-gradient-to-r from-accent-primary via-emerald-400 to-accent-secondary z-50 transition-all duration-150"
       style={{ width: `${progress}%` }}
       role="progressbar"
       aria-label="Scroll progress"
