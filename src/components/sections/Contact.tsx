@@ -5,6 +5,8 @@ import { useState } from "react";
 import { site } from "@/data/site";
 import {
   CheckIcon,
+  CodeChefIcon,
+  CodeforcesIcon,
   CopyIcon,
   GithubIcon,
   LeetCodeIcon,
@@ -211,13 +213,13 @@ export default function Contact() {
                     <span>GitHub</span>
                   </a>
                   <a
-                    href="https://www.linkedin.com/in/rajesh-biswas-8b9780312"
+                    href="https://codeforces.com/profile/rajesh_1920"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-1.5 rounded-lg border border-border-subtle bg-bg-tertiary px-3 py-1.5 text-xs text-ink-secondary hover:text-ink-primary hover:border-accent-primary/40 transition-colors"
                   >
-                    <LinkedinIcon className="h-3.5 w-3.5 text-sky-400" />
-                    <span>LinkedIn</span>
+                    <CodeforcesIcon className="h-3.5 w-3.5 text-accent-secondary" />
+                    <span>Codeforces</span>
                   </a>
                   <a
                     href="https://leetcode.com/u/rajesh_1920/"
@@ -227,6 +229,24 @@ export default function Contact() {
                   >
                     <LeetCodeIcon className="h-3.5 w-3.5 text-amber-400" />
                     <span>LeetCode</span>
+                  </a>
+                  <a
+                    href="https://www.codechef.com/users/rajesh_1920"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 rounded-lg border border-border-subtle bg-bg-tertiary px-3 py-1.5 text-xs text-ink-secondary hover:text-ink-primary hover:border-accent-primary/40 transition-colors"
+                  >
+                    <CodeChefIcon className="h-3.5 w-3.5 text-amber-500" />
+                    <span>CodeChef</span>
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/rajesh-biswas-8b9780312"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 rounded-lg border border-border-subtle bg-bg-tertiary px-3 py-1.5 text-xs text-ink-secondary hover:text-ink-primary hover:border-accent-primary/40 transition-colors"
+                  >
+                    <LinkedinIcon className="h-3.5 w-3.5 text-sky-400" />
+                    <span>LinkedIn</span>
                   </a>
                 </div>
               </div>

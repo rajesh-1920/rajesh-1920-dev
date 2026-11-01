@@ -12,8 +12,6 @@ const navLinks = [
   { href: "#cp", label: "CP Stats" },
   { href: "#skills", label: "Skills" },
   { href: "#projects", label: "Projects" },
-  { href: "#testimonials", label: "Testimonials" },
-  { href: "/blog", label: "Blog", isRoute: true },
   { href: "#cv", label: "CV" },
   { href: "#contact", label: "Contact" },
 ];
@@ -35,7 +33,6 @@ export function Navbar() {
         "cp",
         "skills",
         "projects",
-        "testimonials",
         "cv",
         "contact",
       ];
@@ -97,17 +94,9 @@ export function Navbar() {
           className="hidden lg:flex items-center gap-1 rounded-full border border-border-subtle bg-bg-secondary/60 px-3 py-1.5 backdrop-blur-md"
         >
           {navLinks.map((item) => {
-            const isActive = !item.isRoute && activeSection === item.href.slice(1);
+            const isActive = activeSection === item.href.slice(1);
 
-            return item.isRoute ? (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="rounded-full px-3 py-1.5 text-xs font-semibold text-ink-secondary transition-colors hover:text-ink-primary hover:bg-bg-tertiary"
-              >
-                {item.label}
-              </Link>
-            ) : (
+            return (
               <a
                 key={item.href}
                 href={item.href}
@@ -182,18 +171,9 @@ export function Navbar() {
 
             <nav className="grid grid-cols-2 gap-2">
               {navLinks.map((item) => {
-                const isActive = !item.isRoute && activeSection === item.href.slice(1);
+                const isActive = activeSection === item.href.slice(1);
 
-                return item.isRoute ? (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    onClick={closeMenu}
-                    className="flex items-center rounded-xl border border-border-subtle bg-bg-secondary/60 px-4 py-3 text-sm font-medium text-ink-secondary hover:border-accent-primary/40 hover:text-ink-primary"
-                  >
-                    {item.label}
-                  </Link>
-                ) : (
+                return (
                   <a
                     key={item.href}
                     href={item.href}

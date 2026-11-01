@@ -4,8 +4,6 @@ import Experience from "@/components/sections/Experience";
 import CpStats from "@/components/sections/CpStats";
 import Skills from "@/components/sections/Skills";
 import Projects from "@/components/sections/Projects";
-import Testimonials from "@/components/sections/Testimonials";
-import BlogPreview from "@/components/sections/BlogPreview";
 import Cv from "@/components/sections/Cv";
 import Contact from "@/components/sections/Contact";
 import { ProgressBar } from "@/components/ui/ProgressBar";
@@ -21,8 +19,6 @@ export default function Page() {
       <CpStats />
       <Skills />
       <Projects />
-      <Testimonials />
-      <BlogPreview />
       <Cv />
       <Contact />
       <BackToTop />

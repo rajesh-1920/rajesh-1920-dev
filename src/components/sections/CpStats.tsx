@@ -2,6 +2,7 @@ import { cpStats } from "@/data/cpStats";
 import {
   ArrowUpRightIcon,
   AwardIcon,
+  CodeChefIcon,
   CodeforcesIcon,
   LeetCodeIcon,
   SparklesIcon,
@@ -13,7 +14,7 @@ const platformBadges: Record<
   {
     theme: string;
     border: string;
-    icon?: typeof CodeforcesIcon;
+    icon?: React.ComponentType<{ className?: string }>;
   }
 > = {
   Codeforces: {
@@ -21,16 +22,17 @@ const platformBadges: Record<
     border: "hover:border-cyan-500/40",
     icon: CodeforcesIcon,
   },
-  CodeChef: {
-    theme: "border-amber-500/30 bg-amber-500/10 text-amber-400",
-    border: "hover:border-amber-500/40",
-  },
   LeetCode: {
     theme: "border-orange-500/30 bg-orange-500/10 text-orange-400",
     border: "hover:border-orange-500/40",
     icon: LeetCodeIcon,
   },
-  AtCoder: {
+  CodeChef: {
+    theme: "border-amber-500/30 bg-amber-500/10 text-amber-400",
+    border: "hover:border-amber-500/40",
+    icon: CodeChefIcon,
+  },
+  "CSES & AtCoder": {
     theme: "border-violet-500/30 bg-violet-500/10 text-violet-400",
     border: "hover:border-violet-500/40",
   },
@@ -39,31 +41,45 @@ const platformBadges: Record<
 const cpHonors = [
   {
     icon: TrophyIcon,
-    title: "ICPC Regionalist (Asia West / Dhaka Regional)",
+    title: "ACM ICPC Regionalist (Asia West / Dhaka Regional)",
     year: "2024 & 2025",
     description:
-      "Competed as the lead contestant for Patuakhali Science & Technology University against top collegiate teams across the country.",
-  },
-  {
-    icon: AwardIcon,
-    title: "1st Runner-Up — Intra-University Programming Contest",
-    year: "2025",
-    description:
-      "Secured 2nd place in the university-wide competitive programming championship hosted by PSTU CSE Club.",
+      "Two-time participant in the ACM-ICPC Asia West / Dhaka Regional Onsite Contest, representing Patuakhali Science and Technology University.",
   },
   {
     icon: SparklesIcon,
     title: "15+ National Onsite IUPCs",
     year: "2023 – 2026",
     description:
-      "Consistent finalist in major inter-university contests across Bangladesh, testing speed, accuracy, and team problem-solving.",
+      "Competed onsite in 15+ national Inter-University Programming Contests representing PSTU at BUET, KUET, CUET, and other venues.",
   },
   {
     icon: AwardIcon,
-    title: "BAPS National Programming Camp (Intermediate)",
+    title: "1st Runner-Up — Intra-University Programming Contest",
     year: "2025",
     description:
-      "Selected and completed intensive algorithmic training at BUBT under Bangladesh Advanced Computing Society.",
+      "Secured 2nd place in the prestigious intra-university programming contest organized by the CSE Club, PSTU.",
+  },
+  {
+    icon: AwardIcon,
+    title: "Rising Junior Programmer & Top Performer",
+    year: "2023 – 2026",
+    description:
+      "Awarded Rising Junior Programmer at PSTU IT Carnival (2023) and consistent top performer in university contests (2024–2026).",
+  },
+  {
+    icon: AwardIcon,
+    title: "BAPS National Programming Camp (Intermediate Track)",
+    year: "2025",
+    description:
+      "Selected for and completed intensive intermediate algorithmic problem-solving camp at BUBT.",
+  },
+  {
+    icon: TrophyIcon,
+    title: "2,000+ Algorithmic Problems Solved",
+    year: "Verified",
+    description:
+      "Comprehensive problem solving across Codeforces, LeetCode, CodeChef, AtCoder, CSES, LightOJ, and VJudge under handle rajesh_1920.",
   },
 ];
 
@@ -74,12 +90,15 @@ export default function CpStats() {
         <div className="text-center">
           <p className="section-eyebrow">
             <TrophyIcon className="h-3.5 w-3.5 text-accent-amber" />
-            <span>Proof of Algorithmic Practice</span>
+            <span>Competitive Programming Record</span>
           </p>
-          <h2 className="section-title mt-2">Competitive Programming</h2>
+          <h2 className="section-title mt-2">
+            Competitive Programming &amp; Problem Solving
+          </h2>
           <p className="section-subtitle">
             Consistent contest participation across four major competitive platforms with
-            over 2,000 solved problems.
+            over 2,000 solved problems under handle{" "}
+            <span className="font-mono text-accent-primary font-bold">rajesh_1920</span>.
           </p>
         </div>
 
@@ -90,6 +109,7 @@ export default function CpStats() {
               theme: "border-accent-primary/30 bg-accent-primary/10 text-accent-primary",
               border: "hover:border-accent-primary/40",
             };
+            const Icon = styling.icon;
 
             return (
               <article
@@ -99,7 +119,8 @@ export default function CpStats() {
                 <div>
                   <div className="flex items-start justify-between gap-2 mb-4">
                     <div className="flex items-center gap-2">
-                      <h3 className="font-display text-lg font-bold text-ink-primary">
+                      {Icon && <Icon className="h-4 w-4" />}
+                      <h3 className="font-display text-base font-bold text-ink-primary">
                         {stat.platform}
                       </h3>
                     </div>
@@ -122,9 +143,9 @@ export default function CpStats() {
                   {/* Primary Rating Display */}
                   <div className="rounded-xl border border-border-subtle bg-bg-tertiary/60 p-4 mb-4 text-center">
                     <p className="text-xs uppercase tracking-wider font-semibold text-ink-tertiary">
-                      Current / Peak Rating
+                      Rating / Performance
                     </p>
-                    <p className="font-display text-3xl font-extrabold text-ink-primary mt-1">
+                    <p className="font-display text-2xl sm:text-3xl font-extrabold text-ink-primary mt-1">
                       {stat.rating}
                     </p>
                     <span
@@ -142,10 +163,16 @@ export default function CpStats() {
                         {stat.problems}
                       </dd>
                     </div>
-                    <div className="flex items-center justify-between py-1">
-                      <dt className="text-ink-tertiary">Rated Contests</dt>
+                    <div className="flex items-center justify-between py-1 border-b border-border-subtle">
+                      <dt className="text-ink-tertiary">Contests</dt>
                       <dd className="font-bold text-ink-primary font-mono">
                         {stat.contests}
+                      </dd>
+                    </div>
+                    <div className="flex items-center justify-between py-1">
+                      <dt className="text-ink-tertiary">Handle</dt>
+                      <dd className="font-mono text-xs text-accent-primary font-semibold">
+                        @{stat.handle}
                       </dd>
                     </div>
                   </dl>
@@ -161,27 +188,29 @@ export default function CpStats() {
             Contest Honors &amp; Competitive Milestones
           </h3>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
             {cpHonors.map((honor) => {
               const Icon = honor.icon;
               return (
                 <div
                   key={honor.title}
-                  className="card-glass p-5 flex items-start gap-3.5 hover:border-accent-primary/40 transition-colors"
+                  className="card-glass p-5 flex flex-col justify-between hover:border-accent-primary/40 transition-colors"
                 >
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-accent-primary/10 text-accent-primary mt-0.5">
-                    <Icon className="h-4 w-4" />
-                  </div>
                   <div>
-                    <div className="flex items-center justify-between gap-2">
-                      <h4 className="font-display text-sm font-bold text-ink-primary">
-                        {honor.title}
-                      </h4>
+                    <div className="flex items-start justify-between gap-2 mb-2">
+                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-accent-primary/10 text-accent-primary">
+                        <Icon className="h-4 w-4" />
+                      </div>
                       <span className="shrink-0 text-xs font-mono font-medium text-accent-secondary">
                         {honor.year}
                       </span>
                     </div>
-                    <p className="mt-1 text-xs text-ink-secondary leading-relaxed">
+
+                    <h4 className="font-display text-sm font-bold text-ink-primary">
+                      {honor.title}
+                    </h4>
+
+                    <p className="mt-2 text-xs text-ink-secondary leading-relaxed">
                       {honor.description}
                     </p>
                   </div>

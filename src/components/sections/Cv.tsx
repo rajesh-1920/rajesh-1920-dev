@@ -5,6 +5,7 @@ import { useState } from "react";
 import { cv } from "@/data/cv";
 import {
   AwardIcon,
+  CodeChefIcon,
   CodeforcesIcon,
   DownloadIcon,
   GithubIcon,
@@ -117,6 +118,15 @@ export default function Cv() {
                 >
                   <LeetCodeIcon className="h-4 w-4 text-accent-amber" />
                 </a>
+                <a
+                  href={`https://${cv.codechef}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-lg border border-border-subtle bg-bg-secondary p-2 text-ink-secondary hover:text-ink-primary hover:border-accent-primary/40"
+                  aria-label="CodeChef"
+                >
+                  <CodeChefIcon className="h-4 w-4 text-amber-500" />
+                </a>
               </div>
             </div>
           </div>
@@ -128,7 +138,7 @@ export default function Cv() {
             { id: "overview", label: "Executive Summary" },
             { id: "education", label: "Education & Academics" },
             { id: "honors", label: "Awards & CP Honors" },
-            { id: "certifications", label: "Certifications & Camps" },
+            { id: "certifications", label: "Certifications & Training" },
           ].map((tab) => (
             <button
               key={tab.id}
@@ -210,17 +220,19 @@ export default function Cv() {
 
               <div className="pt-4 border-t border-border-subtle">
                 <p className="text-xs uppercase font-semibold text-ink-tertiary tracking-wider mb-2">
-                  Key Undergraduate Coursework:
+                  Key Undergraduate Coursework &amp; Competencies:
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {[
                     "Data Structures & Algorithms",
-                    "Design & Analysis of Algorithms",
+                    "Graph Theory",
+                    "Dynamic Programming",
+                    "Segment Trees",
+                    "Disjoint Set Union (DSU)",
                     "Operating Systems",
                     "Database Management Systems",
                     "Object-Oriented Programming (C++/Java)",
-                    "Computer Architecture",
-                    "Compiler Design",
+                    "x86-64 Systems & Assembly",
                     "Software Engineering",
                   ].map((course) => (
                     <span
@@ -261,7 +273,7 @@ export default function Cv() {
             <div className="card-glass p-6 sm:p-8 space-y-4">
               <h3 className="font-display text-lg font-bold text-ink-primary flex items-center gap-2">
                 <AwardIcon className="h-5 w-5 text-accent-primary" />
-                <span>Specialized Camps &amp; Certifications</span>
+                <span>Specialized Camps &amp; Training</span>
               </h3>
               <div className="space-y-3">
                 {certifications.map((cert, idx) => (

@@ -27,28 +27,36 @@ export interface SiteConfig {
 export const site: SiteConfig = {
   url:
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
-    "https://rajesh-1920.github.io/rajesh-1920-dev",
+    "https://rajesh-1920-dev.vercel.app",
   name: "Rajesh Biswas",
-  title: "Rajesh Biswas — Competitive Programmer & Full-Stack Developer",
+  title: "Rajesh Biswas — Competitive Programmer & Full-Stack Systems Developer",
   description:
-    "Portfolio of Rajesh Biswas — Computer Science undergraduate, competitive programmer (Codeforces Specialist, two-time ICPC Regionalist), and full-stack developer.",
+    "Official portfolio of Rajesh Biswas — CSE undergraduate at PSTU, two-time ICPC Regionalist, Codeforces Specialist (1416), and full-stack systems engineer.",
   keywords: [
     "Rajesh Biswas",
     "portfolio",
     "competitive programming",
-    "Codeforces",
-    "ICPC",
-    "full-stack developer",
-    "software engineer",
+    "Codeforces Specialist",
+    "ICPC Regionalist",
+    "Full-Stack Developer",
+    "Systems Programmer",
+    "NovaOS",
+    "ContestMate",
+    "PaperHub",
+    "PSTU CSE",
   ],
   email: "rajesh18@cse.pstu.ac.bd",
-  phone: "+8801400234847",
+  phone: "+880 1400 234847",
   location: "Khulna, Bangladesh",
-  ogImage: `${process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ?? "https://rajesh-1920.github.io/rajesh-1920-dev"}/images/profile-picture.jpg`,
+  ogImage: `${process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ?? "https://rajesh-1920-dev.vercel.app"}/images/profile-picture.jpg`,
   social: [
     { label: "GitHub", href: "https://github.com/rajesh-1920" },
-    { label: "LinkedIn", href: "https://www.linkedin.com/in/rajesh-biswas-8b9780312" },
+    {
+      label: "LinkedIn",
+      href: "https://www.linkedin.com/in/rajesh-biswas-8b9780312",
+    },
     { label: "Codeforces", href: "https://codeforces.com/profile/rajesh_1920" },
     { label: "LeetCode", href: "https://leetcode.com/u/rajesh_1920/" },
+    { label: "CodeChef", href: "https://www.codechef.com/users/rajesh_1920" },
   ],
 };

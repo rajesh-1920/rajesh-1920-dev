@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import { site } from "@/data/site";
 import {
+  CodeChefIcon,
   CodeforcesIcon,
   GithubIcon,
   LeetCodeIcon,
@@ -15,8 +16,6 @@ const quickLinks = [
   { href: "#cp", label: "CP Stats" },
   { href: "#skills", label: "Skills" },
   { href: "#projects", label: "Projects" },
-  { href: "#testimonials", label: "Testimonials" },
-  { href: "/blog", label: "Blog" },
   { href: "#cv", label: "CV" },
   { href: "#contact", label: "Contact" },
 ];
@@ -90,6 +89,15 @@ export function Footer() {
               >
                 <LeetCodeIcon className="h-4 w-4 text-amber-400" />
               </a>
+              <a
+                href="https://www.codechef.com/users/rajesh_1920"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-9 w-9 items-center justify-center rounded-xl border border-border-subtle bg-bg-secondary text-ink-secondary hover:text-ink-primary hover:border-accent-primary/50 transition-colors"
+                aria-label="CodeChef"
+              >
+                <CodeChefIcon className="h-4 w-4 text-amber-500" />
+              </a>
             </div>
           </div>
 
@@ -99,25 +107,15 @@ export function Footer() {
               Navigation
             </h3>
             <div className="grid grid-cols-2 gap-2 text-sm">
-              {quickLinks.map((l) =>
-                l.href.startsWith("/") ? (
-                  <Link
-                    key={l.href}
-                    href={l.href}
-                    className="text-ink-secondary hover:text-accent-primary transition-colors py-1"
-                  >
-                    {l.label}
-                  </Link>
-                ) : (
-                  <a
-                    key={l.href}
-                    href={l.href}
-                    className="text-ink-secondary hover:text-accent-primary transition-colors py-1"
-                  >
-                    {l.label}
-                  </a>
-                ),
-              )}
+              {quickLinks.map((l) => (
+                <a
+                  key={l.href}
+                  href={l.href}
+                  className="text-ink-secondary hover:text-accent-primary transition-colors py-1"
+                >
+                  {l.label}
+                </a>
+              ))}
             </div>
           </div>
 

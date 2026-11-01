@@ -3,6 +3,7 @@ import Image from "next/image";
 import { basePath, site } from "@/data/site";
 import {
   ArrowRightIcon,
+  CodeChefIcon,
   CodeforcesIcon,
   DownloadIcon,
   GithubIcon,
@@ -17,7 +18,7 @@ const highlightMetrics = [
   {
     value: "2,000+",
     label: "Problems Solved",
-    detail: "Codeforces, LeetCode & CodeChef",
+    detail: "Codeforces, LeetCode, CodeChef, CSES",
   },
   {
     value: "1416",
@@ -26,13 +27,13 @@ const highlightMetrics = [
   },
   {
     value: "2x",
-    label: "ICPC Regionalist",
-    detail: "15+ Onsite Competitions",
+    label: "ACM ICPC Regionalist",
+    detail: "Dhaka Regional 2024 & 2025",
   },
   {
     value: "540+",
     label: "Production Commits",
-    detail: "Web & Mobile Platforms",
+    detail: "Core Web & Flutter Repositories",
   },
 ];
 
@@ -78,23 +79,23 @@ export default function Hero() {
                 Rajesh Biswas
               </h1>
               <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-ink-secondary leading-snug">
-                Algorithmic Problem Solver &amp;{" "}
+                Competitive Programmer &amp;{" "}
                 <span className="bg-gradient-to-r from-accent-primary via-emerald-400 to-accent-secondary bg-clip-text text-transparent">
-                  Full-Stack Systems Engineer
+                  Full-Stack Systems Developer
                 </span>
               </h2>
             </div>
 
             {/* Bio description */}
             <p className="text-base sm:text-lg text-ink-secondary max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-              Computer Science undergraduate at PSTU, two-time ICPC Regionalist, and
-              Codeforces Specialist with{" "}
+              Computer Science &amp; Engineering undergraduate at PSTU, two-time ICPC
+              Regionalist, and Codeforces Specialist with{" "}
               <strong className="text-ink-primary font-semibold">
                 2,000+ problems solved
               </strong>
               . I engineer robust software across the entire stack — from an x86-64
-              operating system kernel in C to production school management systems
-              handling 540+ commits.
+              operating system kernel in C to production school management systems with
+              540+ commits.
             </p>
 
             {/* Action buttons */}
@@ -121,9 +122,9 @@ export default function Hero() {
             </div>
 
             {/* Social links */}
-            <div className="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-3">
+            <div className="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-2.5">
               <span className="text-xs uppercase tracking-wider text-ink-tertiary font-semibold mr-1">
-                Profiles:
+                Verified Handles:
               </span>
               <a
                 href="https://github.com/rajesh-1920"
@@ -154,6 +155,16 @@ export default function Hero() {
               >
                 <LeetCodeIcon className="h-3.5 w-3.5 text-accent-amber" />
                 <span>LeetCode</span>
+              </a>
+              <a
+                href="https://www.codechef.com/users/rajesh_1920"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 rounded-lg border border-border-subtle bg-bg-secondary/70 px-3 py-1.5 text-xs text-ink-secondary transition hover:border-accent-primary/50 hover:text-ink-primary"
+                aria-label="CodeChef profile"
+              >
+                <CodeChefIcon className="h-3.5 w-3.5 text-amber-500" />
+                <span>CodeChef</span>
               </a>
               <a
                 href="https://www.linkedin.com/in/rajesh-biswas-8b9780312"
@@ -201,7 +212,7 @@ export default function Hero() {
                   <TrophyIcon className="h-4 w-4 text-accent-amber" />
                   <div>
                     <p className="text-[10px] uppercase font-bold text-ink-tertiary tracking-wider">
-                      ICPC Regionalist
+                      ACM ICPC Regionalist
                     </p>
                     <p className="text-xs font-bold text-ink-primary">2024 &amp; 2025</p>
                   </div>
